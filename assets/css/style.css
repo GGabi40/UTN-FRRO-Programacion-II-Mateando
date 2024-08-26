@@ -67,7 +67,7 @@ header a img {
 }
 
 .buscador input[type="text"] {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     padding-left: 20px;
     font-family: var(--fuente-principal);
 }
