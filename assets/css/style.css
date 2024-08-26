@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* 
+font-family: "Josefin Sans", sans-serif;
+font-family: "Inter", sans-serif;
+*/
+
+:root {
+    --fuente-titulo: "Josefin Sans", sans-serif;
+    --font-weight-titulo: 400;
+    --fuente-principal: "Inter", sans-serif;
+
+    --color-primario: #283618;
+    --color-opciones: #606C38;
+
+    --background: #FEFAE0;
+    --header-background: #CCD5AE;
+    --button-background: #D4A373;
+    --button-hover: #BC6C25;
+
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--background);
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--header-background);
+    flex-wrap: wrap;
+}
+
+header a img {
+    height: 150px;
+    filter: sepia(100%) saturate(90%);
+}
+
+.logo-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-header h1 {
+    font-family: var(--fuente-titulo);
+    font-weight: var(--font-weight-titulo);
+    font-size: 4rem;
+    color: var(--color-primario);
+    margin-bottom: 8px;
+}
+
+
+.buscador input[type="text"], .buscador button {
+    height: 40px;
+    padding: 10px;
+    border-radius: var(--border-radius);
+
+    border: none;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.buscador button {
+    background-color: var(--button-background);
+    font-size: 1.4rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.buscador button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: var(--button-hover);
+}
+
+.buscador input[type="text"] {
+    width: 400px;
+}
+
+.carrito, .carrito-mobile {
+    text-align: center;
+}
+
+.carrito a, .carrito-mobile a {
+    font-size: 3rem;
+    color: black;
+    padding: 5px;
+
+    transition: color 0.3s ease-in-out;
+}
+
+.carrito a:visited {
+    color: black;
+}
+
+.carrito a:hover {
+    color: var(--button-hover);
+}
+
+/* Aviso de cuántos items hay en carrito */
+.compra {
+    display: none;
+}
+
+
+/* BARRA DE NAVEGACIÓN */
+
+nav {
+    background: var(--color-primario);
+    height: 45px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: var(--fuente-titulo);
+    list-style: none;
+
+    gap: 8px;
+    font-size: 1.6rem;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-opciones);
+}
+
+.carrito-mobile {
+    display: none;
+}
+
+.contain-menu, .menu-mobile {
+    display: none;
+}
+
+/* .compra {
+    position: absolute;
+    left: 86%;
+    top: 10%;
+    border-radius: 100%;
+    background: red;
+    font-size: 1.4rem;
+    height: 10px;
+    width: 10px;
+} */
+
+
+/* SECCIONES */
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 675px) {
+    header {
+        gap: 30px;
+        padding-bottom: 30px;
+        flex-direction: column;
+    }
+
+    .buscador input[type="text"] {
+        width: 250px;
+    }
+
+    /* MENU MOBILE */
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    .carrito {
+        display: none;
+    }
+
+    .carrito-mobile {
+        display: block;
+    }
+
+    .contain-menu {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 10px;
+        padding-left: 10px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu-mobile {
+        display: block;
+        font-size: 1.8rem;
+        margin-left: 20px;
+        text-align: center;
+    }
+
+    .menu-mobile label {
+        background: var(--button-background);
+        padding: 8px;
+        border-radius: var(--border-radius);
+    }
+}
