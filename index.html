@@ -23,8 +23,8 @@
        
         <div class="carrito">
             <a href="#" class="btn-carrito">
-                <div class="compra"></div>
                 <i class="fa-solid fa-bag-shopping"></i>
+                <span class="compra" id="carrito-compras">0</span>
             </a>
         </div>
     </header>
@@ -38,7 +38,7 @@
 
             <div class="carrito-mobile">
                 <a href="#" class="btn-carrito">
-                    <div class="compra"></div>
+                    <span class="compra" id="carrito-compras">0</span>
                     <i class="fa-solid fa-bag-shopping" style="color: white"></i>
                 </a>
             </div>
@@ -54,7 +54,12 @@
         </ul>
     </nav>
 
+    <div class="back-to-top">
+        <button onclick="topFunction()" id="myBtn" title="Ir al tope"><i class="fa-solid fa-arrow-right"></i></button> 
+    </div>
 
+    <!-- Scripts -->
+    <script src="./assets/js/backToTop.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
