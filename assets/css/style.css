@@ -162,6 +162,10 @@ nav ul li a:hover {
     display: none;
 }
 
+.menu:hover {
+    cursor: pointer;
+}
+
 .contain-menu, .menu-mobile {
     display: none;
 }
