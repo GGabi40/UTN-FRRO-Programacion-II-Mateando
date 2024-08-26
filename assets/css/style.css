@@ -66,6 +66,11 @@ header a img {
     margin-bottom: 8px;
 }
 
+.buscador input[type="text"] {
+    font-size: 1.5rem;
+    padding-left: 20px;
+    font-family: var(--fuente-principal);
+}
 
 .buscador input[type="text"], .buscador button {
     height: 40px;
