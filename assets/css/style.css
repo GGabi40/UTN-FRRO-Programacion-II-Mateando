@@ -50,7 +50,7 @@ header {
 }
 
 header a img {
-    height: 150px;
+    height: 200px;
     filter: sepia(100%) saturate(90%);
 }
 
@@ -58,15 +58,16 @@ header a img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 8px;
 }
 
-.logo-header h1 {
+/* .logo-header h1 {
     font-family: var(--fuente-titulo);
     font-weight: var(--font-weight-titulo);
     font-size: 4rem;
     color: var(--color-primario);
     margin-bottom: 8px;
-}
+} */
 
 .buscador input[type="text"] {
     font-size: 1.6rem;
