@@ -19,6 +19,8 @@ font-family: "Inter", sans-serif;
     --button-hover: #BC6C25;
 
     --border-radius: 8px;
+    --border-radius-izq: 0 8px 8px 0;
+    --border-radius-der: 8px 0 0 8px;
 }
 
 * {
@@ -75,7 +77,6 @@ header a img {
 .buscador input[type="text"], .buscador button {
     height: 40px;
     padding: 10px;
-    border-radius: var(--border-radius);
 
     border: none;
 }
@@ -83,13 +84,16 @@ header a img {
 .buscador {
     display: flex;
     align-items: center;
-    gap: 4px;
+}
+.buscador input[type="text"] {
+    border-radius: var(--border-radius-der)
 }
 
 .buscador button {
     background-color: var(--button-background);
     font-size: 1.4rem;
     transition: all 0.3s ease-in-out;
+    border-radius: var(--border-radius-izq);
 }
 
 .buscador button:hover {
