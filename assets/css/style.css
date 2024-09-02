@@ -57,6 +57,7 @@ header {
 header a img {
   height: 200px;
   filter: sepia(100%) saturate(90%);
+  aspect-ratio: 1;
 }
 
 .logo-header {
