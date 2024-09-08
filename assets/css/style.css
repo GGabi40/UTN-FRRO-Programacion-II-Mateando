@@ -514,8 +514,8 @@ footer .contacto img {
 
     position: fixed;
 
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     background: var(--color-opciones);
 
     display: grid;
@@ -539,11 +539,25 @@ footer .contacto img {
     text-align: center;
   }
 
+  .content-menu-mob li:last-child {
+    background-color: var(--button-background);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.522);
+    font-weight: bold;
+  }
+
   .content-menu-mob li a:hover {
     background-color: var(--color-primario);
     border-radius: var(--border-radius);
     color: white;
     font-weight: 500;
+  }
+
+  .content-menu-mob li:last-child a:hover {
+    background-color: transparent;
   }
 }
 /* --- HASTA AQUÍ --- */
