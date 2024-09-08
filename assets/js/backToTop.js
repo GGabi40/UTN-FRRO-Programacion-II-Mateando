@@ -14,4 +14,18 @@ window.onscroll = function() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-} 
+}
+
+/* GALERÍA */
+
+let index = 0;
+mover(0);
+
+function mover(n) {
+  const imagenes = document.querySelector('.carrusel-imagenes');
+  const totalImagenes = imagenes.children.length;
+
+  index = (index + n + totalImagenes) % totalImagenes;
+  const desplazamiento = -index * 100;
+  imagenes.style.transform = `translateX(${desplazamiento}%)`;
+}
