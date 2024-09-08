@@ -559,5 +559,10 @@ footer .contacto img {
   .content-menu-mob li:last-child a:hover {
     background-color: transparent;
   }
+
+  .carrusel-imagenes img {
+    width: 100vw;
+    height: auto;
+  }
 }
 /* --- HASTA AQUÍ --- */
