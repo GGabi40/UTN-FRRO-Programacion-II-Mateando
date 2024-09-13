@@ -481,8 +481,14 @@ footer .contacto img {
     margin-bottom: 10px;
   }
 
+  .content-menu-mob, .mobile {
+    display: none;
+  }
+
   .menu-mobile {
-    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 3;
@@ -492,6 +498,8 @@ footer .contacto img {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+
+    padding-right: 20px;
   }
 
   #productos {
