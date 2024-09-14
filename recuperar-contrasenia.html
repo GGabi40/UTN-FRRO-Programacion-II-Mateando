@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Mateando</title>
+    <link rel="shortcut icon" href="./assets/img/LOGO-footer.webp" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/login.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+</head>
+<body>
+    <!-- COPIAR HEADER Y NAV -->
+
+    <!-- *** ACTUALIZAR ENLACES *** -->
+    <header>
+        <div class="logo-header">
+          <a href="./index.html">
+            <img
+              src="./assets/img/LOGO-header.webp"
+              alt="Logo de Mateando"
+              loading="lazy"
+            />
+          </a>
+        </div>
+  
+        <div class="buscador">
+          <input type="text" name="search" id="search" />
+          <button id="buscador" aria-label="Buscador">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+  
+        <div class="carrito">
+          <a href="#" class="btn-carrito" title="Ver carrito">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="compra" id="carrito-compras">0</span>
+          </a>
+        </div>
+      </header>
+  
+      <nav>
+        
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+  
+          <li><a href="#productos">Productos</a>
+              <ul>
+                  <li><a href="#">Mates</a></li>
+                  <li><a href="#">Termos</a></li>
+                  <li><a href="#">Bombillas</a></li>
+                  <li><a href="#">Set matero</a></li>
+              </ul>
+          </li>
+  
+          <li><a href="#">Matetips</a></li>
+          <li><a href="#">Quienes Somos</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+  
+      <div class="menu-mobile">
+          <div class="contain-menu">
+              <div class="carrito-mobile">
+                <a href="#" class="btn-carrito">
+                  <span class="compra" id="carrito-compras">0</span>
+                  <i class="fa-solid fa-bag-shopping" style="color: white"></i>
+                </a>
+              </div>
+            </div>
+  
+          <input type="checkbox" name="menu-btn" id="menu-btn" class="menu-btn">
+          <label for="menu-btn" class="menu-btn-label" aria-label="Abrir menú de navegación"></label>
+      </div>
+      
+      <div class="mobile">
+          <div class="content-menu-mob">
+              <ul class="menu-list-mob">
+                  <li><a href="./index.html">Inicio</a></li>
+                  <li><a href="#productos">Productos</a></li>
+                  <li><a href="#">Matetips</a></li>
+                  <li><a href="#">Quienes Somos</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Contacto</a></li>
+                  <li><a href="#">X</a></li>
+                </ul>
+  
+          </div>
+      </div>
+
+      <div class="container">
+        <form action="/">
+            <div class="inicio-formulario">
+                <img src="./assets/img/LOGO-footer.webp" alt="LOGO">
+                <p>¿Olvidaste tu contraseña?</p>
+                <p style="font-size: 1.6rem;">Ingresa los siguientes datos para continuar:</p>
+            </div>
+
+            <div class="label">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="label">
+                <label for="pass">Ingresar nueva contraseña:</label>
+                <input type="password" name="pass" id="pass" required>
+            </div>
+            <div class="label">
+                <label for="pass">Repetir nueva contraseña:</label>
+                <input type="password" name="pass" id="pass" required>
+            </div>
+            <input type="submit" value="Recuperar Contaseña">
+            <!-- <span class="respuesta-sesion">Contraseña Restablecida</span> -->
+        </form>
+
+        <div class="links">
+            <a href="./login.html">Iniciar sesión</a>
+            <p class="no-cuenta">¿Todavía no tienes una cuenta? </p>
+            <a href="./registrarse.html">Registrate</a>
+        </div>
+      </div>
+
+      <footer>
+        <div class="info">
+            <div class="pago">
+                <p>Medios de Pago</p>
+                <div class="iconos-footer">
+                    <img src="./assets/img/icono-medio-pago/efectivo.png" alt="Efectivo" class="medio-pago">
+                    <img src="./assets/img/icono-medio-pago/mastercard.png" alt="Mastercard" class="medio-pago">
+                    <img src="./assets/img/icono-medio-pago/visa.png" alt="Visa" class="medio-pago">
+                    <img src="./assets/img/icono-medio-pago/mercadopago.png" alt="Mercadopago" class="medio-pago">
+                </div>
+            </div>
+
+            <div class="redes">
+                <p>Redes Sociales</p>
+                <div class="iconos-footer icons">
+                    <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="http://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="http://tiktok.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacto">
+            <div class="img-logo">
+                <img src="./assets/img/LOGO-footer.webp" alt="LOGO mateando footer">
+            </div>
+            <div class="info-contacto">
+                <p>Contacto:</p>
+                <span><a href="mailto:mateando@example.com">mateando@example.com</a></span>
+                <span><a href="https://maps.app.goo.gl/1G8EwPwC1Tm632zp7" target="_blank">Calle Cordoba 1234</a></span>
+                <span>Rosario, Santa Fe.</span>
+            </div>
+        </div>
+
+        
+    </footer>
+
+    <div class="final">
+        <span>Creado con 💖 por Grupo 6.</span>
+    </div>
+
+    <div class="back-to-top">
+      <button onclick="topFunction()" id="myBtn" title="Ir al tope">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+</body>
+</html>
