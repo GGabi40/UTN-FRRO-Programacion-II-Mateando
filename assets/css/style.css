@@ -292,6 +292,7 @@ footer .medio-pago {
 footer .contacto img {
   width: 120px;
   filter: invert(1);
+  aspect-ratio: 120 / 103.78;
 }
 
 .info-contacto {
