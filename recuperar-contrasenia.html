@@ -28,8 +28,8 @@
         </div>
   
         <div class="buscador">
-          <input type="text" name="search" id="search" />
-          <button id="buscador" aria-label="Buscador">
+          <input type="text" name="search" id="search" aria-label="Buscar en el sitio" placeholder="Buscar..." />
+          <button id="buscador" aria-label="Buscador" aria-label="Iniciar búsqueda">
             <i class="fa fa-search" aria-hidden="true"></i>
           </button>
         </div>
@@ -93,9 +93,9 @@
       </div>
 
       <div class="container">
-        <form action="/">
-            <div class="inicio-formulario">
-                <img src="./assets/img/LOGO-footer.webp" alt="LOGO">
+        <form action="/" aria-labelledby="form-titulo">
+            <div class="inicio-formulario" id="form-titulo">
+                <img src="./assets/img/LOGO-footer.webp" alt="LOGO" loading="lazy">
                 <p>¿Olvidaste tu contraseña?</p>
                 <p style="font-size: 1.6rem;">Ingresa los siguientes datos para continuar:</p>
             </div>
@@ -112,7 +112,7 @@
                 <label for="pass">Repetir nueva contraseña:</label>
                 <input type="password" name="pass" id="pass" required>
             </div>
-            <input type="submit" value="Recuperar Contaseña">
+            <input type="submit" value="Recuperar Contaseña" aria-label="Recuperar Contaseña">
             <!-- <span class="respuesta-sesion">Contraseña Restablecida</span> -->
         </form>
 
