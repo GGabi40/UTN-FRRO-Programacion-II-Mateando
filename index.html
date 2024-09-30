@@ -36,11 +36,11 @@
       </div>
 
       <div class="carrito">
-        <a href="./carrito.html" class="btn-carrito" title="Ver carrito">
+        <a href="./carrito.html" class="btn-carrito" title="Ver carrito" aria-label="Ver carrito">
           <i class="fa-solid fa-bag-shopping"></i>
           <span class="compra" id="carrito-compras">0</span>
         </a>
-        <a href="./login.html" class="usuario" title="Iniciar sesión">
+        <a href="./login.html" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
           <i class="fa-solid fa-user"></i>
         </a>
       </div>
@@ -102,14 +102,14 @@
     <!-- HASTA AQUI /\ -->
 
     <div class="container-fluid">
-      <div class="carrusel">
+      <div class="carrusel" role="region" aria-label="Galería de imágenes">
         <div class="carrusel-imagenes">
             <img src="./assets/img/banner/mate.jpg" alt="Chica con mate de algarrobo">
             <img src="./assets/img/banner/mate2.webp" alt="Chica con mate imperial">
             <img src="./assets/img/banner/mate.jpg" alt="Chica con mate de algarrobo">
         </div>
-        <button class="prev" onclick="mover(-1)">&#10094;</button>
-        <button class="next" onclick="mover(1)">&#10095;</button>
+        <button class="prev" onclick="mover(-1)" aria-label="Pasar imagen">&#10094;</button>
+        <button class="next" onclick="mover(1)" aria-label="Volver imagen">&#10095;</button>
     </div>
 
 
@@ -253,7 +253,7 @@
     </div>
 
     <div class="back-to-top">
-      <button onclick="topFunction()" id="myBtn" title="Ir al tope">
+      <button onclick="topFunction()" id="myBtn" title="Ir al tope" aria-label="Ir al tope">
         <i class="fa-solid fa-arrow-right"></i>
       </button>
     </div>
