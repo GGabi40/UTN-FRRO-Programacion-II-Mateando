@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mateando | Tienda Online</title>
-    <link rel="stylesheet" href="./assets/css/style.css" media="all" />
-    <link rel="shortcut icon" href="./assets/img/LOGO-footer.webp" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" media="all" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" type="image/x-icon">
 
     <link
       rel="stylesheet"
@@ -21,7 +21,7 @@
       <div class="logo-header">
         <a href="./index.html">
           <img
-            src="./assets/img/LOGO-header.webp"
+            src="{{ url_for('static', filename='assets/img/LOGO-header.webp') }}"
             alt="Logo de Mateando"
             loading="lazy"
           />
@@ -104,9 +104,9 @@
     <div class="container-fluid">
       <div class="carrusel" role="region" aria-label="Galería de imágenes">
         <div class="carrusel-imagenes">
-            <img src="./assets/img/banner/mate.jpg" alt="Chica con mate de algarrobo">
-            <img src="./assets/img/banner/mate2.webp" alt="Chica con mate imperial">
-            <img src="./assets/img/banner/mate.jpg" alt="Chica con mate de algarrobo">
+            <img src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}" alt="Chica con mate de algarrobo">
+            <img src="{{ url_for('static', filename='assets/img/banner/mate2.webp') }}" alt="Chica con mate imperial">
+            <img src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}" alt="Chica con mate de algarrobo">
         </div>
         <button class="prev" onclick="mover(-1)" aria-label="Pasar imagen">&#10094;</button>
         <button class="next" onclick="mover(1)" aria-label="Volver imagen">&#10095;</button>
@@ -116,7 +116,7 @@
       <div id="productos">
         <div class="producto">
           <div class="imagen-producto">
-            <img src="./assets/img/productos/mate1.jpg" alt="" />
+            <img src="{{ url_for('static', filename='assets/img/productos/mate1.jpg') }}" alt="" />
           </div>
           <div class="info-productos">
               <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
@@ -262,8 +262,8 @@
 
 
     <!-- Scripts *** COPIAR *** -->
-    <script src="./assets/js/buttons.js"></script>
-    <script src="./assets/js/menu-mobile.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/buttons.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/menu-mobile.js') }}"></script>
 
   </body>
 </html>
