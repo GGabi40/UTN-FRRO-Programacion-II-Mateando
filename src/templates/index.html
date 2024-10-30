@@ -27,32 +27,22 @@
   </div>
 
   <div id="productos">
-    <div class="producto">
-      <div class="imagen-producto">
-        <img
-          src="{{ url_for('static', filename='assets/img/productos/mate1.jpg') }}"
-          alt=""
-        />
+    {% for producto in productos %}
+      <div class="producto">
+        <div class="imagen-producto">
+          <img
+            src="{{ producto.image_url }}"
+            alt="Foto Producto"
+          />
+        </div>
+        <div class="info-productos">
+          <span class="nombre-producto"><a href="#">{{ producto.nombre }}</a></span>
+          <span class="precio">{{ producto.precio }}</span>
+        </div>
       </div>
-      <div class="info-productos">
-        <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-        <span class="precio">PRECIO</span>
-      </div>
-    </div>
-    <div class="producto">
-      <img src="https://placehold.co/600x400" alt="" />
-      <div class="info-productos">
-        <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-        <span class="precio">PRECIO</span>
-      </div>
-    </div>
-    <div class="producto">
-      <img src="https://placehold.co/600x400" alt="" />
-      <div class="info-productos">
-        <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-        <span class="precio">PRECIO</span>
-      </div>
-    </div>
+    {% endfor %}
+
+    
   </div>
 
 </div>

@@ -1,31 +1,24 @@
 from src import crear_app, db
+from typing import List, Tuple, Any
 from flask import render_template
+
+from src.database import *
+
 
 app = crear_app()
 
 
-""" class Productos(db.Model):
-    __tablename__ = 'productos'
-    
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(100), nullable=False)
-    precio = db.Column(db.Float, nullable=False)
-    image_url = db.Column(db.String(200), nullable=True)
-    
-    def __repr__(self) -> str:
-        return f"<Productos {self.nombre} {self.precio}>"
-
-
-
+""" Crea BBDDs """
 with app.app_context():
     db.create_all()
- """
+
 
 # Rutas:
 
 @app.route('/')
 def index():
-    return render_template('/index.html')
+    productos: List[Tuple[Any]] = Productos.query.all()
+    return render_template("index.html", productos=productos)
 
 
 @app.route('/contacto')
