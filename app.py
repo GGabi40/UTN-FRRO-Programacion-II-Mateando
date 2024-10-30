@@ -1,14 +1,25 @@
-from flask import Flask, render_template
-import os
+from src import crear_app, db
+from flask import render_template
 
-# Config
-db_path: str = 'sqlite:///' + os.path.abspath(os.path.dirname(__file__)) + '/db/db.sqlite'
+app = crear_app()
 
-app: Flask = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = db_path
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# -----
+""" class Productos(db.Model):
+    __tablename__ = 'productos'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(100), nullable=False)
+    precio = db.Column(db.Float, nullable=False)
+    image_url = db.Column(db.String(200), nullable=True)
+    
+    def __repr__(self) -> str:
+        return f"<Productos {self.nombre} {self.precio}>"
+
+
+
+with app.app_context():
+    db.create_all()
+ """
 
 # Rutas:
 
