@@ -1,269 +1,61 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mateando | Tienda Online</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" media="all" />
-    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" type="image/x-icon">
+{% extends 'base.html' %}
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-  </head>
-  <body>
+{% block content %}
 
-    <!-- COPIAR HEADER Y NAV -->
-
-    <!-- *** ACTUALIZAR ENLACES *** -->
-    <header>
-      <div class="logo-header">
-        <a href="./index.html">
-          <img
-            src="{{ url_for('static', filename='assets/img/LOGO-header.webp') }}"
-            alt="Logo de Mateando"
-            loading="lazy"
-          />
-        </a>
-      </div>
-
-      <div class="buscador">
-        <input type="text" name="search" id="search" aria-label="Buscar en el sitio" placeholder="Buscar..." />
-        <button id="buscador" aria-label="Iniciar búsqueda">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
-      </div>
-
-      <div class="carrito">
-        <a href="./carrito.html" class="btn-carrito" title="Ver carrito" aria-label="Ver carrito">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span class="compra" id="carrito-compras">0</span>
-        </a>
-        <a href="./login.html" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
-          <i class="fa-solid fa-user"></i>
-        </a>
-      </div>
-    </header>
-
-    <nav>
-      
-      <ul>
-        <li><a href="./index.html">Inicio</a></li>
-
-        <li><a href="./productos.html">Productos</a>
-            <ul>
-                <li><a href="#">Mates</a></li>
-                <li><a href="#">Termos</a></li>
-                <li><a href="#">Bombillas</a></li>
-                <li><a href="#">Set matero</a></li>
-            </ul>
-        </li>
-
-        <li><a href="./mate-tips.html">Matetips</a></li>
-        <li><a href="./quienes-somos.html">Quienes Somos</a></li>
-        <li><a href="./faq.html">FAQ</a></li>
-        <li><a href="./contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <div class="menu-mobile">
-        <div class="contain-menu">
-            <div class="carrito-mobile">
-              <a href="./carrito.html" class="btn-carrito" title="Ver carrito">
-                <span class="compra" id="carrito-compras">0</span>
-                <i class="fa-solid fa-bag-shopping" style="color: white"></i>
-              </a>
-              <a href="./login.html" class="usuario" title="Iniciar sesión">
-                <i class="fa-solid fa-user"></i>
-              </a>
-            </div>
-          </div>
-
-        <input type="checkbox" name="menu-btn" id="menu-btn" class="menu-btn">
-        <label for="menu-btn" class="menu-btn-label" aria-label="Abrir menú de navegación"></label>
+<div class="container-fluid">
+  <div class="carrusel" role="region" aria-label="Galería de imágenes">
+    <div class="carrusel-imagenes">
+      <img
+        src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}"
+        alt="Chica con mate de algarrobo"
+      />
+      <img
+        src="{{ url_for('static', filename='assets/img/banner/mate2.webp') }}"
+        alt="Chica con mate imperial"
+      />
+      <img
+        src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}"
+        alt="Chica con mate de algarrobo"
+      />
     </div>
-    
-    <div class="mobile">
-        <div class="content-menu-mob">
-            <ul class="menu-list-mob">
-                <li><a href="./index.html">Inicio</a></li>
-                <li><a href="./productos.html">Productos</a></li>
-                <li><a href="./mate-tips.html">Matetips</a></li>
-                <li><a href="./quienes-somos.html">Quienes Somos</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-                <li><a href="./contacto.html">Contacto</a></li>
-                <li><a href="#">X</a></li>
-              </ul>
+    <button class="prev" onclick="mover(-1)" aria-label="Pasar imagen">
+      &#10094;
+    </button>
+    <button class="next" onclick="mover(1)" aria-label="Volver imagen">
+      &#10095;
+    </button>
+  </div>
 
-        </div>
-    </div>
-
-    <!-- HASTA AQUI /\ -->
-
-    <div class="container-fluid">
-      <div class="carrusel" role="region" aria-label="Galería de imágenes">
-        <div class="carrusel-imagenes">
-            <img src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}" alt="Chica con mate de algarrobo">
-            <img src="{{ url_for('static', filename='assets/img/banner/mate2.webp') }}" alt="Chica con mate imperial">
-            <img src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}" alt="Chica con mate de algarrobo">
-        </div>
-        <button class="prev" onclick="mover(-1)" aria-label="Pasar imagen">&#10094;</button>
-        <button class="next" onclick="mover(1)" aria-label="Volver imagen">&#10095;</button>
-    </div>
-
-
-      <div id="productos">
-        <div class="producto">
-          <div class="imagen-producto">
-            <img src="{{ url_for('static', filename='assets/img/productos/mate1.jpg') }}" alt="" />
-          </div>
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="https://placehold.co/600x400" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="https://placehold.co/600x400" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="https://placehold.co/600x400" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="https://placehold.co/600x400" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="https://placehold.co/600x400" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
-        <div class="producto">
-          <img src="" alt="" />
-          <div class="info-productos">
-              <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
-              <span class="precio">PRECIO</span>
-          </div>
-        </div>
+  <div id="productos">
+    <div class="producto">
+      <div class="imagen-producto">
+        <img
+          src="{{ url_for('static', filename='assets/img/productos/mate1.jpg') }}"
+          alt=""
+        />
+      </div>
+      <div class="info-productos">
+        <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
+        <span class="precio">PRECIO</span>
       </div>
     </div>
-
-    <!-- COPIAR FOOTER Y FINAL -->
-    <!-- *** ACTUALIZAR ENLACES *** -->
-    <footer>
-        <div class="info">
-            <div class="pago">
-                <p>Medios de Pago</p>
-                <div class="iconos-footer">
-                    <img src="./assets/img/icono-medio-pago/efectivo.png" alt="Efectivo" class="medio-pago">
-                    <img src="./assets/img/icono-medio-pago/mastercard.png" alt="Mastercard" class="medio-pago">
-                    <img src="./assets/img/icono-medio-pago/visa.png" alt="Visa" class="medio-pago">
-                    <img src="./assets/img/icono-medio-pago/mercadopago.png" alt="Mercadopago" class="medio-pago">
-                </div>
-            </div>
-
-            <div class="redes">
-                <p>Redes Sociales</p>
-                <div class="iconos-footer icons">
-                    <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="http://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="http://tiktok.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="contacto">
-            <div class="img-logo">
-                <img src="./assets/img/LOGO-footer.webp" alt="LOGO mateando footer">
-            </div>
-            <div class="info-contacto">
-                <p>Contacto:</p>
-                <span><a href="mailto:mateando@example.com">mateando@example.com</a></span>
-                <span><a href="https://maps.app.goo.gl/1G8EwPwC1Tm632zp7" target="_blank">Calle Cordoba 1234</a></span>
-                <span>Rosario, Santa Fe.</span>
-            </div>
-        </div>
-
-        
-    </footer>
-
-    <div class="final">
-        <span>Creado con 💖 por Grupo 6.</span>
+    <div class="producto">
+      <img src="https://placehold.co/600x400" alt="" />
+      <div class="info-productos">
+        <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
+        <span class="precio">PRECIO</span>
+      </div>
     </div>
-
-    <div class="back-to-top">
-      <button onclick="topFunction()" id="myBtn" title="Ir al tope" aria-label="Ir al tope">
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
+    <div class="producto">
+      <img src="https://placehold.co/600x400" alt="" />
+      <div class="info-productos">
+        <span class="nombre-producto"><a href="#">PRODUCTO</a></span>
+        <span class="precio">PRECIO</span>
+      </div>
     </div>
+  </div>
 
-    <!-- HASTA AQUI /\ -->
+</div>
 
 
-    <!-- Scripts *** COPIAR *** -->
-    <script src="{{ url_for('static', filename='assets/js/buttons.js') }}"></script>
-    <script src="{{ url_for('static', filename='assets/js/menu-mobile.js') }}"></script>
-
-  </body>
-</html>
+{% endblock %}

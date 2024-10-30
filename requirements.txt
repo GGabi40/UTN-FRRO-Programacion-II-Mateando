@@ -1,3 +1,6 @@
 Flask
 Flask-MySQLdb
 Flask-SQLAlchemy
+flask-migrate
+pydantic
+pydantic[email]
