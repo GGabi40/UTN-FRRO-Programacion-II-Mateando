@@ -1,4 +1,5 @@
-<h1>Mateando</h1>
+<h1>🧉 Mateando</h1>
+<img src="./static/assets/img/LOGO-footer.webp">
 <h2>TP Final - Programación II</h2>
 
 <p>Miembros del grupo:</p>
@@ -13,9 +14,7 @@
 
 <p>Clique <a href="https://ggabi40.github.io/UTN-FRRO-Programacion-II-Mateando/">aquí</a> para visitar el proyecto.</p>
 
-<br>
 <hr>
-<br>
 <h2>💻 Tecnologías:</h2>
 <ul>
     <li>HTML</li>
@@ -29,13 +28,8 @@
 <p>Ejecutar:</p>
 <code>pip install -r requirements.txt</code>
 
-
-
 <br>
 <br>
-<br>
-<br>
-
 <hr>
 
 <h2>Apartado para info:</h2>
