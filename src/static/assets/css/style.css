@@ -307,12 +307,14 @@ nav ul li ul li a:hover {
 
 #formularioContacto input[type="submit"] {
   max-width: 30%;
+  min-width: 30%;
   background-color: var(--button-background);
   border: none;
   height: 50px;
   border-radius: var(--border-radius);
   font-size: 1.5rem;
   font-weight: bold;
+  margin: 0 auto;
 
   transition: background-color, color 0.3s ease-in-out;
 }
