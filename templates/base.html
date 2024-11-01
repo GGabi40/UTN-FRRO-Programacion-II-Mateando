@@ -7,6 +7,10 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" media="all" />
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" type="image/x-icon">
+    
+    {% block css %}
+      
+    {% endblock %}
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -100,39 +104,36 @@
 
 
     <footer>
-        <div class="info">
-            <div class="pago">
-                <p>Medios de Pago</p>
-                <div class="iconos-footer">
-                    <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/efectivo.png') }}" alt="Efectivo" class="medio-pago">
-                    <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/mastercard.png') }}" alt="Mastercard" class="medio-pago">
-                    <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/visa.png') }}" alt="Visa" class="medio-pago">
-                    <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/mercadopago.png') }}" alt="Mercadopago" class="medio-pago">
-                </div>
-            </div>
-
-            <div class="redes">
-                <p>Redes Sociales</p>
-                <div class="iconos-footer icons">
-                    <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="http://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="http://tiktok.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </a>
-                </div>
-            </div>
+      <div class="pago">
+        <p>Medios de Pago</p>
+        <div class="iconos-footer">
+            <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/efectivo.png') }}" alt="Efectivo" class="medio-pago">
+            <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/mastercard.png') }}" alt="Mastercard" class="medio-pago">
+            <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/visa.png') }}" alt="Visa" class="medio-pago">
+            <img src="{{ url_for('static', filename='assets/img/icono-medio-pago/mercadopago.png') }}" alt="Mercadopago" class="medio-pago">
         </div>
+    </div>
+
+        <div class="redes">
+          <p>Redes Sociales</p>
+          <div class="iconos-footer icons">
+              <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="http://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="http://tiktok.com" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-tiktok"></i>
+              </a>
+          </div>
+      </div>
 
         <div class="contacto">
             <div class="img-logo">
                 <img src="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" alt="LOGO mateando footer">
             </div>
             <div class="info-contacto">
-                <p>Contacto:</p>
                 <span><a href="mailto:mateando@example.com">mateando@example.com</a></span>
                 <span><a href="https://maps.app.goo.gl/1G8EwPwC1Tm632zp7" target="_blank">Calle Cordoba 1234</a></span>
                 <span>Rosario, Santa Fe.</span>
@@ -152,8 +153,11 @@
       </button>
     </div>
     
-    <script src="{{ url_for('static', filename='assets/js/buttons.js') }}"></script>
+    
     <script src="{{ url_for('static', filename='assets/js/menu-mobile.js') }}"></script>
 
+    {% block script %}
+      
+    {% endblock %}
 </body>
 </html>

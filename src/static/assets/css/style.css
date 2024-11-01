@@ -257,6 +257,70 @@ nav ul li ul li a:hover {
   font-size: 1.6rem;
 }
 
+/* FORMULARIO DE CONTACTO */
+
+.formularioContato, #formularioContacto {
+  display: flex;
+  flex-direction: column;
+}
+
+.formularioContato h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 2.6rem;
+}
+
+#formularioContacto {
+  box-shadow: 0 0 3px var(--color-primario);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 0 auto;
+  min-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#formularioContacto label {
+  font-size: 1.8rem;
+}
+
+#formularioContacto input[type="text"], input[type="email"] {
+  padding: 10px 8px;
+  font-size: 1.6rem;
+}
+
+#formularioContacto input[type="text"]:focus, input[type="email"]:focus {
+  box-shadow: 1px 1px 10px var(--color-primario);
+}
+
+#formularioContacto input[type="submit"] {
+  max-width: 30%;
+  background-color: var(--button-background);
+  border: none;
+  height: 50px;
+  border-radius: var(--border-radius);
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  transition: background-color, color 0.3s ease-in-out;
+}
+
+#formularioContacto input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: var(--button-hover);
+  color: white;
+}
+
+#mensaje {
+  min-height: 60px;
+  padding: 10px 20px;
+
+  font-family: "Inter", sans-serif;
+}
+
+
 /* BACK TO TOP */
 
 #myBtn {
@@ -283,28 +347,20 @@ nav ul li ul li a:hover {
 footer {
   background: var(--color-primario);
   color: white;
-  min-height: 410px;
-  margin-top: 30px;
+  min-height: 200px;
+  margin-top: 50px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 70px;
+  gap: 50px;
   text-align: center;
   flex-wrap: wrap;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 footer p {
   margin-bottom: 6px;
-}
-
-footer .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
 }
 
 footer .medio-pago {
@@ -314,7 +370,7 @@ footer .medio-pago {
 }
 
 .icons {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 footer .contacto img {
@@ -362,7 +418,6 @@ footer .contacto img {
   display: none;
 }
 
-/* ----- HASTA AQUÍ ----- */
 
 /* GALERÍA DE FOTOS */
 
@@ -464,7 +519,7 @@ footer .contacto img {
   border-radius: var(--border-radius);
 }
 
-/* ---- COPIAR TAMBIEN ----- */
+
 
 /* MEDIA QUERIES */
 
@@ -653,4 +708,3 @@ footer .contacto img {
     height: auto;
   }
 }
-/* --- HASTA AQUÍ --- */
