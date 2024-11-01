@@ -1,21 +1,4 @@
 :root {
-  --fuente-titulo: "Josefin Sans", sans-serif;
-  --font-weight-titulo: 400;
-  --fuente-principal: "Inter", sans-serif;
-
-  --color-primario: #283618;
-  --color-opciones: #606c38;
-
-  --background: #fefae0;
-  --header-background: #ccd5ae;
-  --button-background: #d4a373;
-  --button-hover: #bc6c25;
-  --back-top: #dda15e;
-
-  --border-radius: 8px;
-  --border-radius-izq: 0 8px 8px 0;
-  --border-radius-der: 8px 0 0 8px;
-
   --width: 100px;
   --height: 35px;
   --tooltip-height: 35px;
@@ -24,8 +7,6 @@
   --button-color: ;
   --tooltip-color: #fff;
 }
-
-/* ACORDARME DE BORRAR DESPUÉS /\ */
 
 h1 {
   padding-top: 10px;

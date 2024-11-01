@@ -323,14 +323,14 @@ nav ul li ul li a:hover {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 auto;
+  color: white;
 
-  transition: background-color, color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 #formularioContacto input[type="submit"]:hover {
   cursor: pointer;
   background-color: var(--button-hover);
-  color: white;
 }
 
 #mensaje {
