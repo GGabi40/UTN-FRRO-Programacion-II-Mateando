@@ -1,9 +1,73 @@
-{% include 'base.html'   %}
+<!DOCTYPE html>
+<html lang="es">
 
-{% block content %}
-    
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateando | Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dashboard.css') }}" media="all">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}"
+        type="image/x-icon">
+</head>
 
-{% block script %}
+<body>
+    <header>
+        <div class="logo" aria-label="Logo Mateando">Mateando</div>
+        <div class="header-buttons">
+            
+            <button class="modo-oscuro" onclick="toggleDarkMode()">Modo Oscuro</button>
+            <button class="cerrar-sesion">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main>
+        <h1>Bienvenido, Admin</h1>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card ventas">
+                <h2>Número de Ventas</h2>
+                <div class="numero-grande" aria-label="Número total de ventas">0</div>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Agregar Nuevo Producto</h2>
+                <form id="agregar-producto-form">
+                    <div>
+                        <label for="nombre">Nombre del Producto:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div>
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="">Seleccione una categoría</option>
+                            <option value="set_matero">Set matero</option>
+                            <option value="mates">Mates</option>
+                            <option value="bombillas">Bombillas</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="precio">Precio:</label>
+                        <input type="number" id="precio" name="precio" step="0.01" required>
+                    </div>
+                    <div>
+                        <label for="image_url">URL de la Imagen:</label>
+                        <input type="url" id="image_url" name="image_url">
+                    </div>
+                    
+                    <button type="submit">Agregar Producto</button>
+                </form>
+            </div>
+        </div>
+
+        {# 
+        <div class="dashboard-card">
+            
+        </div>
     
-{% endblock %}
+        #}
+    </main>
+
+    <script src="{{ url_for('static', filename='assets/js/dashboard.js') }}"></script>
+</body>
+
+</html>
