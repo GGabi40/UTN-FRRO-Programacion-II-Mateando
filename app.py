@@ -15,6 +15,11 @@ with app.app_context():
 
 # Rutas:
 
+# PRUEBA
+""" @app.route('/dashboard')
+def dashboard():
+    return render_template('auth/dashboard.html') """
+
 @app.route('/')
 def index():
     productos: List[Tuple[Any]] = Productos.query.all()

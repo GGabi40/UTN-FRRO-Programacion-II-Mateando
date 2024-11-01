@@ -5,18 +5,9 @@
 <div class="container-fluid">
   <div class="carrusel" role="region" aria-label="Galería de imágenes">
     <div class="carrusel-imagenes">
-      <img
-        src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}"
-        alt="Chica con mate de algarrobo"
-      />
-      <img
-        src="{{ url_for('static', filename='assets/img/banner/mate2.webp') }}"
-        alt="Chica con mate imperial"
-      />
-      <img
-        src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}"
-        alt="Chica con mate de algarrobo"
-      />
+      <img src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}" alt="Chica con mate de algarrobo" />
+      <img src="{{ url_for('static', filename='assets/img/banner/mate2.webp') }}" alt="Chica con mate imperial" />
+      <img src="{{ url_for('static', filename='assets/img/banner/mate.jpg') }}" alt="Chica con mate de algarrobo" />
     </div>
     <button class="prev" onclick="mover(-1)" aria-label="Pasar imagen">
       &#10094;
@@ -28,24 +19,21 @@
 
   <div id="productos">
     {% for producto in productos %}
-      <div class="producto">
-        <div class="imagen-producto">
-          <img
-            src="{{ producto.image_url }}"
-            alt="Foto Producto"
-          />
-        </div>
-        <div class="info-productos">
-          <span class="nombre-producto"><a href="#">{{ producto.nombre.title() }}</a></span>
-          <span class="precio">{{ producto.precio }}</span>
-          <div class="acciones">
-            <button class="btn agregar-carrito">Agregar al carrito</button>
-            <button class="btn comprar">Comprar</button>
-          </div>
+    <div class="producto">
+      <div class="imagen-producto">
+        <img src="{{ producto.image_url }}" alt="Foto Producto" />
+      </div>
+      <div class="info-productos">
+        <span class="nombre-producto"><a href="#">{{ producto.nombre.title() }}</a></span>
+        <span class="precio">{{ producto.precio }}</span>
+        <div class="acciones">
+          <button class="btn agregar-carrito">Agregar al carrito</button>
+          <button class="btn comprar">Comprar</button>
         </div>
       </div>
+    </div>
     {% endfor %}
-</div>
+  </div>
 
 </div>
 
@@ -53,5 +41,5 @@
 {% endblock %}
 
 {% block script %}
-  <script src="{{ url_for('static', filename='assets/js/buttons.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/buttons.js') }}"></script>
 {% endblock %}

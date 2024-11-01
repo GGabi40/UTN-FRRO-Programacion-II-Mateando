@@ -1,5 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="productos-container">
+    <aside class="sidebar">
+        <h2>Categorías</h2>
+        <form id="filter-form">
+          <div>
+            <input type="checkbox" id="todos" class="filter-checkbox" data-filter="todos" checked>
+            <label for="todos">Todos</label>
+          </div>
+          <div>
+            <input type="checkbox" id="mates" class="filter-checkbox" data-filter="mates">
+            <label for="mates">Mates</label>
+          </div>
+          <div>
+            <input type="checkbox" id="termos" class="filter-checkbox" data-filter="termos">
+            <label for="termos">Termos</label>
+          </div>
+          <div>
+            <input type="checkbox" id="bombillas" class="filter-checkbox" data-filter="bombillas">
+            <label for="bombillas">Bombillas</label>
+          </div>
+          <div>
+            <input type="checkbox" id="sets" class="filter-checkbox" data-filter="sets">
+            <label for="sets">Sets Materos</label>
+          </div>
+        </form>
+      </aside>
+  
+    <div id="productos">
+        {# {% for producto in productos %} #}
+        
+        <div class="producto">
+          <div class="imagen-producto">
+            <img src="/ruta" alt="Foto Producto" />
+          </div>
+          <div class="info-productos">
+            <span class="nombre-producto"><a href="#">Nombre</a></span>
+            <span class="precio">10.000</span>
+            <div class="acciones">
+              <button class="btn agregar-carrito">Agregar al carrito</button>
+              <button class="btn comprar">Comprar</button>
+            </div>
+          </div>
+        </div>
+        {# {% endfor %} #}
+      </div>
+</div>
   
 {% endblock %}
