@@ -663,6 +663,83 @@ footer .contacto img {
   line-height: 1.6;
 }
 
+/* QUIENES SOMOS */
+
+#quienes-somos {
+  background-color: var(--background);
+  padding: 40px;
+  color: var(--color-primario);
+  text-align: center;
+}
+
+#quienes-somos h2 {
+  font-size: 2.4rem;
+  color: var(--color-primario);
+  margin-bottom: 20px;
+}
+
+#quienes-somos .contenido {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+#quienes-somos strong {
+  color: var(--button-hover);
+}
+
+#quienes-somos p {
+  margin-bottom: 20px;
+}
+
+.contenido .img img {
+  height: 80px;
+  width: auto;
+  aspect-ratio: 92.5 / 80;
+}
+
+
+/* FAQ */
+
+#faq {
+  background-color: var(--background);
+  padding: 40px;
+  color: var(--color-primario);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#faq h2 {
+  font-size: 2.4rem;
+  color: var(--color-primario);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.faq-item h3 {
+  font-size: 1.8rem;
+  color: var(--button-hover);
+  cursor: pointer;
+}
+
+.faq-item p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.faq-item h3:hover {
+  color: var(--color-primario);
+}
+
+
 /* MEDIA QUERIES */
 
 @media (max-width: 675px) {
