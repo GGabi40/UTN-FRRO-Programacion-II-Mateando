@@ -2,7 +2,14 @@
 
 {% block content %}
     <div class="error">
-        <h1>¡Servidor Caído!</h1>
-        <h2>Error 500...</h2>
+        <div class="mensaje-error">
+            <h2>¡Lo sentimos!</h2>
+            <h3>Perdimos la conexión con el servidor.</h3>
+            <p>Error 500.</p>
+        </div>
+        
+        <div class="mate">
+            <img src="{{ url_for('static', filename='assets/img/error/404.png') }}" alt="Homero tomando mates">
+        </div>
     </div>
 {% endblock %}
