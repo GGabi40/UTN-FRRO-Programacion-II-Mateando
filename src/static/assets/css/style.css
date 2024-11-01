@@ -69,9 +69,7 @@ header a img {
   margin-bottom: 8px;
 }
 
-
 /* Prueba */
-
 
 .buscador input[type="text"] {
   font-size: 1.6rem;
@@ -146,7 +144,6 @@ header a img {
   text-decoration: underline;
 }
 
-
 /* Aviso de cuántos items hay en carrito */
 .compra {
   font-size: 1.6rem;
@@ -157,7 +154,8 @@ header a img {
   padding: 8px;
 }
 
-.btn-carrito, .usuario {
+.btn-carrito,
+.usuario {
   background-color: var(--color-opciones);
   text-decoration: none;
   display: flex;
@@ -262,7 +260,6 @@ nav ul li ul li a:hover {
   padding-left: 20%;
 }
 
-
 .error h2 {
   font-size: 2.8rem;
 }
@@ -277,7 +274,8 @@ nav ul li ul li a:hover {
 
 /* FORMULARIO DE CONTACTO */
 
-.formularioContato, #formularioContacto {
+.formularioContato,
+#formularioContacto {
   display: flex;
   flex-direction: column;
 }
@@ -304,12 +302,14 @@ nav ul li ul li a:hover {
   font-size: 1.8rem;
 }
 
-#formularioContacto input[type="text"], input[type="email"] {
+#formularioContacto input[type="text"],
+input[type="email"] {
   padding: 10px 8px;
   font-size: 1.6rem;
 }
 
-#formularioContacto input[type="text"]:focus, input[type="email"]:focus {
+#formularioContacto input[type="text"]:focus,
+input[type="email"]:focus {
   box-shadow: 1px 1px 10px var(--color-primario);
 }
 
@@ -339,7 +339,6 @@ nav ul li ul li a:hover {
 
   font-family: "Inter", sans-serif;
 }
-
 
 /* BACK TO TOP */
 
@@ -438,13 +437,11 @@ footer .contacto img {
   display: none;
 }
 
-
 /* GALERÍA DE FOTOS */
 
 .carrusel {
   position: relative;
   width: 100%;
-  /* max-width: 600px; */
   margin: auto;
   overflow: hidden;
 }
@@ -486,60 +483,185 @@ footer .contacto img {
 
 #productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 358px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
   row-gap: 30px;
   justify-content: center;
   padding-top: 20px;
 }
 
 .producto {
-  height: 360px;
-  width: 296px;
+  min-height: 330px;
+  width: 250px;
   background: white;
-  border: 1px solid black;
-  border-radius: var(--border-radius);
-
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
+  align-items: center;
   overflow: hidden;
+  padding: 15px;
 }
 
-#productos .producto .imagen-producto {
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-producto {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.imagen-producto > img {
+  max-width: 80%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.info-productos {
+  text-align: center;
+}
+
+.info-productos .nombre-producto {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.nombre-producto {
+  display: block;
+}
+
+.info-productos .precio {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.info-productos .precio::before {
+  content: "$ ";
+}
+
+.acciones {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  gap: 10px;
   width: 100%;
 }
 
-.info-productos span {
-  display: block;
-  font-size: 1.6rem;
+.btn {
+  padding: 8px 12px;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.agregar-carrito {
+  background-color: #4caf50;
+  color: white;
+}
+
+.agregar-carrito:hover {
+  background-color: #2b8a30;
+}
+
+.comprar {
+  background-color: var(--button-hover);
+  color: white;
+}
+
+.comprar:hover {
+  background-color: #e67614;
 }
 
 .info-productos a {
   text-decoration: none;
-  color: black;
-}
-
-.precio {
-  font-weight: 500;
-}
-
-.precio::before {
-  content: '$ '
+  color: var(--color-primario);
+  transition: color 0.3s ease;
 }
 
 .info-productos a:hover {
-  text-decoration: underline;
+  color: #007bff;
 }
 
-#productos .producto .imagen-producto > img {
-  max-width: 70%;
-  object-fit: cover;
-  border-radius: var(--border-radius);
+/* MATETIPS */
+
+#matetips {
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid var(--button-background);
+  border-bottom: 2px solid var(--button-background);
 }
 
+.matetips-header {
+  margin-bottom: 30px;
+}
 
+.matetips-header h2 {
+  font-size: 2.8rem;
+  color: var(--color-primario);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.matetips-header p {
+  font-size: 1.6rem;
+  color: var(--button-hover);
+  font-weight: 500;
+}
+
+.matetips-tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tip-icon {
+  font-size: 2.5rem;
+  color: #5d3d00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.tip {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tip h3 {
+  font-size: 1.8rem;
+  color: #5d3d00;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.tip p {
+  font-size: 1.4rem;
+  color: #333;
+  line-height: 1.6;
+}
 
 /* MEDIA QUERIES */
 
@@ -589,7 +711,8 @@ footer .contacto img {
     margin-bottom: 10px;
   }
 
-  .content-menu-mob, .mobile {
+  .content-menu-mob,
+  .mobile {
     display: none;
   }
 
@@ -608,10 +731,6 @@ footer .contacto img {
     text-align: center;
 
     padding-right: 20px;
-  }
-
-  #productos {
-    justify-items: center;
   }
 
   .menu-btn-label::after {
@@ -713,6 +832,26 @@ footer .contacto img {
   #productos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  .imagen-producto {
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .imagen-producto > img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
   }
 
   .error {
@@ -723,8 +862,30 @@ footer .contacto img {
     align-items: center;
   }
 
-  .error .mate img{
+  .error .mate img {
     width: 200px;
     height: auto;
+  }
+
+  /* Matetips */
+
+  #matetips {
+    padding: 20px;
+  }
+
+  .matetips-header h2 {
+    font-size: 2.4rem;
+  }
+
+  .matetips-header p {
+    font-size: 1.4rem;
+  }
+
+  .tip h3 {
+    font-size: 1.6rem;
+  }
+
+  .tip p {
+    font-size: 1.3rem;
   }
 }

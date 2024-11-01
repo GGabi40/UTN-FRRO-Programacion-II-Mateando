@@ -36,14 +36,16 @@
           />
         </div>
         <div class="info-productos">
-          <span class="nombre-producto"><a href="#">{{ producto.nombre }}</a></span>
+          <span class="nombre-producto"><a href="#">{{ producto.nombre.title() }}</a></span>
           <span class="precio">{{ producto.precio }}</span>
+          <div class="acciones">
+            <button class="btn agregar-carrito">Agregar al carrito</button>
+            <button class="btn comprar">Comprar</button>
+          </div>
         </div>
       </div>
     {% endfor %}
-
-    
-  </div>
+</div>
 
 </div>
 
