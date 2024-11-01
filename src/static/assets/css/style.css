@@ -274,10 +274,10 @@ nav ul li ul li a:hover {
 
 /* FORMULARIO DE CONTACTO */
 
-.formularioContato,
-#formularioContacto {
+.formularioContato {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .formularioContato h1 {
@@ -285,59 +285,80 @@ nav ul li ul li a:hover {
   margin-top: 30px;
   margin-bottom: 20px;
   font-size: 2.6rem;
+  color: var(--color-primario);
 }
 
 #formularioContacto {
-  box-shadow: 0 0 3px var(--color-primario);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: var(--border-radius);
-  padding: 20px;
+  background-color: #fbfff3;
+  padding: 30px;
   margin: 0 auto;
-  min-width: 60%;
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 #formularioContacto label {
   font-size: 1.8rem;
+  margin-bottom: 5px;
+  color: var(--color-primario);
 }
 
 #formularioContacto input[type="text"],
-input[type="email"] {
-  padding: 10px 8px;
+#formularioContacto input[type="email"],
+#formularioContacto textarea {
+  padding: 12px;
   font-size: 1.6rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  background-color: #f0f0f0;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 #formularioContacto input[type="text"]:focus,
-input[type="email"]:focus {
-  box-shadow: 1px 1px 10px var(--color-primario);
+#formularioContacto input[type="email"]:focus,
+#formularioContacto textarea:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+#formularioContacto textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.error-message {
+  color: red;
+  font-size: 1.4rem;
+  margin-top: 5px;
 }
 
 #formularioContacto input[type="submit"] {
-  max-width: 30%;
-  min-width: 30%;
+  width: 100%;
+  max-width: 200px;
   background-color: var(--button-background);
   border: none;
   height: 50px;
   border-radius: var(--border-radius);
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 0 auto;
   color: white;
-
   transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
 #formularioContacto input[type="submit"]:hover {
-  cursor: pointer;
   background-color: var(--button-hover);
-}
-
-#mensaje {
-  min-height: 60px;
-  padding: 10px 8px;
-
-  font-family: "Inter", sans-serif;
 }
 
 /* BACK TO TOP */
@@ -698,7 +719,6 @@ footer .contacto img {
   width: auto;
   aspect-ratio: 92.5 / 80;
 }
-
 
 /* FAQ */
 

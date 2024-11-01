@@ -39,6 +39,7 @@ const verficaMensaje = (msj) => {
 
 const verficaEmail = (email) => {
     if(email.includes('@') && email.includes('.com')) {
+        ocultarError('Email')
         return true;
     } else {
         mensajeError('Email', 'Introduce un email válido.');

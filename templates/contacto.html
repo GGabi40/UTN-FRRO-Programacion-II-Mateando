@@ -5,21 +5,29 @@
         <h1>Formulario Para Consultas:</h1>
 
         <form id="formularioContacto">
-            <label for="name">Nombre:</label>
-            <input type="text" name="name" id="name" placeholder="Tu nombre aquí..." minlength="2" required>
-            <div id="errorNombre"></div>
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" name="name" id="name" placeholder="Tu nombre aquí..." minlength="2" required>
+                <div id="errorNombre" class="error-message"></div>
+            </div>
 
-            <label for="surname">Apellido:</label>
-            <input type="text" name="surname" id="surname" placeholder="Tu apellido aquí..." minlength="2" required>
-            <div id="errorApellido"></div>
+            <div class="form-group">
+                <label for="surname">Apellido:</label>
+                <input type="text" name="surname" id="surname" placeholder="Tu apellido aquí..." minlength="2" required>
+                <div id="errorApellido" class="error-message"></div>
+            </div>
 
-            <label for="mail">E-mail:</label>
-            <input type="email" name="mail" id="mail" placeholder="Ej.: juanPerez@ejemplo.com" required>
-            <div id="errorEmail"></div>
+            <div class="form-group">
+                <label for="mail">E-mail:</label>
+                <input type="email" name="mail" id="mail" placeholder="Ej.: juanPerez@ejemplo.com" required>
+                <div id="errorEmail" class="error-message"></div>
+            </div>
 
-            <label for="mensaje">Mensaje:</label>
-            <textarea name="mensaje" id="mensaje" placeholder="Escriba tu mensaje:" minlength="10" required></textarea>
-            <div id="errorMensaje"></div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="mensaje" id="mensaje" placeholder="Escriba tu mensaje:" minlength="10" required></textarea>
+                <div id="errorMensaje" class="error-message"></div>
+            </div>
             
             <input type="submit" value="Enviar">
         </form>
