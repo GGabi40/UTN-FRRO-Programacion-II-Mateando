@@ -22,8 +22,6 @@ const validaInformacion = (e) => {
     if (nombreValidado && apellidoValidado && emailValidado && mensajeValidado) {
         alert('validado');
         // formulario.submit();
-    } else {
-        alert('Verifique sus datos...');
     }
 }
 

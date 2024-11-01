@@ -1,0 +1,249 @@
+:root {
+  --fuente-titulo: "Josefin Sans", sans-serif;
+  --font-weight-titulo: 400;
+  --fuente-principal: "Inter", sans-serif;
+
+  --color-primario: #283618;
+  --color-opciones: #606c38;
+
+  --background: #fefae0;
+  --header-background: #ccd5ae;
+  --button-background: #d4a373;
+  --button-hover: #bc6c25;
+  --back-top: #dda15e;
+
+  --border-radius: 8px;
+  --border-radius-izq: 0 8px 8px 0;
+  --border-radius-der: 8px 0 0 8px;
+
+  --width: 100px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: ;
+  --tooltip-color: #fff;
+}
+
+/* ACORDARME DE BORRAR DESPUÉS /\ */
+
+h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.container-carrito {
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  gap: 8%;
+
+  padding: 10px 10%;
+}
+
+.compras,
+.resumen {
+  border: 1px solid var(--color-primario);
+  box-shadow: 1px 1px 6px var(--color-opciones);
+  border-radius: var(--border-radius);
+  padding: 20px;
+}
+
+/* COMPRAS */
+
+.compras {
+  font-size: 1.6rem;
+}
+
+.compras table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.compras th,
+.compras td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.compras .cantidad {
+  font-weight: bold;
+}
+
+.compras .btn-mas,
+.compras .btn-menos,
+.compras .btn-eliminar {
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.compras .btn-mas,
+.compras .btn-menos {
+  background-color: var(--color-opciones);
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.compras .btn-eliminar {
+  background-color: var(--button-hover);
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-mas:hover,
+.btn-menos:hover {
+  background-color: var(--color-primario);
+}
+
+.btn-eliminar:hover {
+  background-color: red;
+}
+
+/* RESUMEN */
+
+.resumen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 160px;
+}
+
+.resumen-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--button-background);
+}
+
+.resumen-text h2 {
+  font-size: 1.8rem;
+}
+
+.resumen-text > img {
+  width: 60px;
+  height: auto;
+  aspect-ratio: 60 / 51.9;
+}
+
+.titulo-total {
+  padding-top: 10px;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  width: var(--width);
+  height: var(--height);
+  background: var(--color-opciones);
+  position: relative;
+  text-align: center;
+  border-radius: 0.45em;
+  font-family: var(--fuente-principal);
+  transition: background 0.3s;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,
+.text,
+.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text {
+  top: 0;
+}
+
+.text,
+.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.button:hover {
+  background: var(--color-primario);
+}
+
+.button:hover .text {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,
+.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+#btn-comprar {
+  border: none;
+}
+
+.btn {
+  margin: 0 auto;
+}
+
+#btn-comprar:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 675px) {
+  .container-carrito {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px 5%;
+  }
+
+  .compras {
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .compras table {
+    max-width: 340px;
+  }
+
+  #interaccion button:nth-child(1),
+  #interaccion button:nth-child(2) {
+    display: inline;
+    padding: 6px 8px;
+  }
+}

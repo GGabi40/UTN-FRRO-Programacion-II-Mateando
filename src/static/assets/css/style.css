@@ -69,6 +69,10 @@ header a img {
   margin-bottom: 8px;
 }
 
+
+/* Prueba */
+
+
 .buscador input[type="text"] {
   font-size: 1.6rem;
   padding-left: 20px;
@@ -105,7 +109,7 @@ header a img {
 }
 
 .buscador input[type="text"] {
-  width: 400px;
+  width: 250px;
 }
 
 .carrito,
@@ -236,6 +240,10 @@ nav ul li ul li a:hover {
 .menu-btn,
 .content-menu-mob {
   display: none;
+}
+
+.container {
+  margin: 0 auto;
 }
 
 .error {
