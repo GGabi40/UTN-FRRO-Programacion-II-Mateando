@@ -9,57 +9,64 @@
     <h1>Carrito de Compras</h1>
     <div class="container-carrito">
         <div class="compras">
-            <table>
-                {# AGREGAR CONDICIONAL PARA SI HAY ITEMS O NO #}
+            <table class="carrito-tabla">
                 <thead>
-                  <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Acciones</th>
-                  </tr>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Mate Imperial</td>
-                    <td>80.000</td>
-                    <td>
-                      <span class="cantidad">1</span>
-                    </td>
-                    <td id="interaccion">
-                      <button class="btn-mas">+</button>
-                      <button class="btn-menos">-</button>
-                      <button class="btn-eliminar">Eliminar</button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>Mate Calabaza</td>
-                    <td>20.000</td>
-                    <td>
-                      <span class="cantidad">2</span>
-                    </td>
-                    <td id="interaccion">
-                      <button class="btn-mas">+</button>
-                      <button class="btn-menos">-</button>
-                      <button class="btn-eliminar">Eliminar</button>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>Mate Calabaza</td>
-                    <td>20.000</td>
-                    <td>
-                      <span class="cantidad">2</span>
-                    </td>
-                    <td id="interaccion">
-                      <button class="btn-mas">+</button>
-                      <button class="btn-menos">-</button>
-                      <button class="btn-eliminar">Eliminar</button>
-                    </td>
-                  </tr>
+                    <tr>
+                        <td>
+                            <img src="https://www.joyeriacognac.com.ar/wp-content/uploads/2022/09/10080-4.png" alt="Mate Imperial" class="producto-imagen">
+                        </td>
+                        <td>Mate Imperial</td>
+                        <td>
+                            <button class="cantidad-btn">-</button>
+                            <span class="cantidad">1</span>
+                            <button class="cantidad-btn">+</button>
+                        </td>
+                        <td>$25.00</td>
+                        <td>
+                            <button class="eliminar-btn">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_867192-MLA49293808218_032022-O.webp" alt="Bombilla de Alpaca" class="producto-imagen">
+                        </td>
+                        <td>Bombilla de Alpaca</td>
+                        <td>
+                            <button class="cantidad-btn">-</button>
+                            <span class="cantidad">2</span>
+                            <button class="cantidad-btn">+</button>
+                        </td>
+                        <td>$30.00</td>
+                        <td>
+                            <button class="eliminar-btn">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="" alt="Yerba Mate Premium" class="producto-imagen">
+                        </td>
+                        <td>Yerba Mate Premium</td>
+                        <td>
+                            <button class="cantidad-btn" id="btn-menos">-</button>
+                            <span class="cantidad">1</span>
+                            <button class="cantidad-btn" id="btn-mas">+</button>
+                        </td>
+                        <td>$10.00</td>
+                        <td>
+                            <button class="eliminar-btn" id="btn-del">Eliminar</button>
+                        </td>
+                    </tr>
                 </tbody>
-              </table>
+            </table>
         </div>
         <div class="resumen">
             <div class="resumen-text">

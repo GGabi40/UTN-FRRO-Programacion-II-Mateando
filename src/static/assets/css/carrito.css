@@ -24,12 +24,18 @@ h1 {
   padding: 10px 10%;
 }
 
+.resumen {
+  padding: 15px;
+}
+
+.compras {
+  padding: 8px;
+}
+
 .compras,
 .resumen {
-  border: 1px solid var(--color-primario);
   box-shadow: 1px 1px 6px var(--color-opciones);
   border-radius: var(--border-radius);
-  padding: 20px;
 }
 
 /* COMPRAS */
@@ -43,49 +49,52 @@ h1 {
   border-collapse: collapse;
 }
 
-.compras th,
-.compras td {
+.carrito-tabla th,
+.carrito-tabla td {
+  border: 1px solid transparent;
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
-.compras .cantidad {
-  font-weight: bold;
+.carrito-tabla th {
+  background-color: var(--header-background);
 }
 
-.compras .btn-mas,
-.compras .btn-menos,
-.compras .btn-eliminar {
-  margin: 0 5px;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
+.producto-imagen {
+  width: auto;
+  height: 100px;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+.cantidad-btn {
+  background-color: var(--button-background);
   border: none;
-  border-radius: 4px;
-}
-
-.compras .btn-mas,
-.compras .btn-menos {
-  background-color: var(--color-opciones);
   color: white;
-  font-weight: bold;
-  transition: background-color 0.3s ease-in-out;
+  padding: 4px 6px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.compras .btn-eliminar {
+.cantidad-btn:hover {
   background-color: var(--button-hover);
+}
+
+.cantidad {
+  margin: 0 10px;
+}
+
+.eliminar-btn {
+  background-color: var(--button-background);
+  border: none;
   color: white;
-  transition: background-color 0.3s ease-in-out;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.btn-mas:hover,
-.btn-menos:hover {
-  background-color: var(--color-primario);
-}
-
-.btn-eliminar:hover {
-  background-color: red;
+.eliminar-btn:hover {
+  background-color: var(--button-hover);
 }
 
 /* RESUMEN */
@@ -95,6 +104,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   max-height: 160px;
+  min-width: 180px;
 }
 
 .resumen-text {
@@ -107,12 +117,6 @@ h1 {
 
 .resumen-text h2 {
   font-size: 1.8rem;
-}
-
-.resumen-text > img {
-  width: 60px;
-  height: auto;
-  aspect-ratio: 60 / 51.9;
 }
 
 .titulo-total {
@@ -206,13 +210,43 @@ h1 {
   cursor: pointer;
 }
 
-@media (max-width: 675px) {
+@media (max-width: 810px) {
   .container-carrito {
     grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 10px 5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carrito-container {
+    padding: 10px;
   }
 
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .carrito-tabla {
+    font-size: 1.2rem;
+  }
+
+  .carrito-tabla th,
+  .carrito-tabla td {
+    padding: 8px;
+  }
+
+  .producto-imagen {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cantidad-btn,
+  .eliminar-btn {
+    padding: 4px 8px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 675px) {
   .compras {
     margin: 0 auto;
     padding: 10px;
@@ -221,10 +255,65 @@ h1 {
   .compras table {
     max-width: 340px;
   }
+}
 
-  #interaccion button:nth-child(1),
-  #interaccion button:nth-child(2) {
-    display: inline;
-    padding: 6px 8px;
-  }
+@media screen and (max-width: 480px) {
+    .compras {
+        margin: 0;
+    }
+
+    .resumen {
+        margin-bottom: 60px;
+    }
+    
+    .carrito-tabla,
+    .carrito-tabla tbody,
+    .carrito-tabla tr,
+    .carrito-tabla td {
+        display: block;
+    }
+
+    .carrito-tabla thead {
+        display: none;
+    }
+
+    .carrito-tabla tr {
+        margin-bottom: 15px;
+        border: 1px solid var(--color-opciones);
+    }
+
+    .carrito-tabla td {
+        width: 100%;
+        text-align: center;
+        position: relative;
+        border: none;
+    }
+
+    .carrito-tabla td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .producto-imagen {
+        width: 100%;
+        height: auto;
+        max-width: 100px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .total {
+        text-align: center;
+    }
+
+    .comprar-btn,
+    .volver-btn {
+        width: 100%;
+    }
 }
