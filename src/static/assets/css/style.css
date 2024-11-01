@@ -133,6 +133,16 @@ header a img {
   color: var(--color-primario);
 }
 
+#iniciarSesion {
+  font-size: 1.2rem;
+  /* transition: text-decoration 0.3s ease-in-out; */
+}
+
+#iniciarSesion:hover {
+  text-decoration: underline;
+}
+
+
 /* Aviso de cuántos items hay en carrito */
 .compra {
   font-size: 1.6rem;

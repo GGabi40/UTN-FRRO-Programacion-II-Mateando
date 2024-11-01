@@ -40,6 +40,7 @@
           </a>
           <a href="{{ url_for('login') }}" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
             <i class="fa-solid fa-user"></i>
+            <span id="iniciarSesion">Iniciar<br>Sesión</span>
           </a>
         </div>
         
@@ -153,7 +154,7 @@
       </button>
     </div>
     
-    
+
     <script src="{{ url_for('static', filename='assets/js/menu-mobile.js') }}"></script>
 
     {% block script %}
