@@ -51,6 +51,9 @@ def dashboard():
     return render_template('auth/dashboard.html')
 # ----
 
+
+""" MOSTRAR A GIULIANNO """
+
 """ Agregar un nuevo Usuario """
 @app.route('/add', methods=["POST"])
 def add_contact() -> Response | str:
@@ -65,11 +68,28 @@ def add_contact() -> Response | str:
     nuevo_Usuario.set_password(password)
 
     db.session.add(nuevo_Usuario)
-    # AGREGA EL CONTACTO A LA BBDD
     db.session.commit()
 
     return redirect(url_for("index"))
 
+
+@app.route('/addProducto', methods=["POST"])
+def add_producto() -> Response | str:
+    nombre: str = request.form['nombre']
+    precio: str = request.form['precio']
+    image_url: str = request.form['image_url']
+    id_categoria: str = request.form['categoria']
+    
+    nuevo_Producto: Productos = Productos(nombre=nombre, precio=float(precio), image_url=image_url, id_categoria=int(id_categoria))
+    try:
+        db.session.add(nuevo_Producto)
+        db.session.commit()
+        print("Producto agregado exitosamente")
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error al agregar el producto: {e}")
+
+    return redirect(url_for("dashboard"))
 
 
 @app.route('/')

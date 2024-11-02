@@ -15,5 +15,4 @@ document.getElementById('agregar-producto-form').addEventListener('submit', func
     this.reset();
 });
 
-
 // AGREGAR VALIDACION DE FORMULARIO

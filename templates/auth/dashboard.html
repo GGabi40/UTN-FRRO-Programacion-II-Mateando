@@ -31,7 +31,7 @@
 
             <div class="dashboard-card">
                 <h2>Agregar Nuevo Producto</h2>
-                <form id="agregar-producto-form">
+                <form id="agregar-producto-form" method="post" action="/addProducto">
                     <div>
                         <label for="nombre">Nombre del Producto:</label>
                         <input type="text" id="nombre" name="nombre" required>
@@ -40,9 +40,11 @@
                         <label for="categoria">Categoría:</label>
                         <select id="categoria" name="categoria" required>
                             <option value="">Seleccione una categoría</option>
-                            <option value="set_matero">Set matero</option>
-                            <option value="mates">Mates</option>
-                            <option value="bombillas">Bombillas</option>
+                            <option value="1">Set matero</option>
+                            <option value="2">Mates</option>
+                            <option value="3">Bombillas</option>
+                            <option value="4">Termo</option>
+                            <option value="5">Yerba</option>
                         </select>
                     </div>
                     <div>
@@ -54,17 +56,31 @@
                         <input type="url" id="image_url" name="image_url">
                     </div>
                     
-                    <button type="submit">Agregar Producto</button>
+                    <input type="submit" value="Agregar Producto">
                 </form>
             </div>
         </div>
 
-        {# 
         <div class="dashboard-card">
-            
+            <div id="productos">
+                {% for producto in productos %}
+                <div class="producto">
+                  <div class="imagen-producto">
+                    <img src="{{ producto.image_url }}" alt="Foto Producto" />
+                  </div>
+                  <div class="info-productos">
+                    <span class="nombre-producto"><a href="#">{{ producto.nombre.title() }}</a></span>
+                    <span class="precio">{{ producto.precio }}</span>
+                    <div class="acciones">
+                      <button class="btn agregar-carrito">Agregar al carrito</button>
+                      <button class="btn comprar">Comprar</button>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
         </div>
-    
-        #}
+
     </main>
 
     <script src="{{ url_for('static', filename='assets/js/dashboard.js') }}"></script>
