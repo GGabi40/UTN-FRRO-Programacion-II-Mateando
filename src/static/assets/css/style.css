@@ -386,7 +386,9 @@ nav ul li ul li a:hover {
   display: none;
 }
 
-label {
+/* ARREGLAR ESO */
+
+/* label {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
@@ -416,7 +418,7 @@ label::before {
 .sidebar form div {
   margin-bottom: 10px;
 }
-
+ */
 /* BACK TO TOP */
 
 #myBtn {

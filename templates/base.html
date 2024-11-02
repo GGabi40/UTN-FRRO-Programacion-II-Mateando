@@ -40,7 +40,12 @@
           </a>
           <a href="{{ url_for('login') }}" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
             <i class="fa-solid fa-user"></i>
-            <span id="iniciarSesion">Iniciar<br>Sesión</span> {# AGG CONDICIONAL POR SI LOGIN O NO #}
+            <span id="iniciarSesion">
+            {% if session.get('nombre') %}
+              {{ session['nombre'] }}
+            {% else %}
+              Iniciar<br>Sesión
+            {% endif %}</span>
           </a>
         </div>
         

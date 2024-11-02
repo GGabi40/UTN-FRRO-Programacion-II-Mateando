@@ -1,25 +1,76 @@
 from src import crear_app, db
 from typing import List, Tuple, Any
-from flask import render_template
+from flask import render_template, request, Response, redirect, url_for
 
-from src.database import *
+from src.models import *
+from src.routes import main
 
 
 app = crear_app()
+app.register_blueprint(main)
 
+@app.route('/database')
+def database():
+    init_db()
+    return "Base de datos creada correctamente."
 
 """ Crea BBDDs """
-with app.app_context():
+def create_db():
+    db.drop_all()
     db.create_all()
+
+""" VER DONDE PONER """
+
+""" Método de inicialización de nuestra BBDD """
+def init_db():
+    create_db()
+    
+    # user admin app
+    admin = Usuario(
+        nombre = 'admin',
+        apellido = '1',
+        email = 'admin@mateando.com',
+        es_admin = True,
+        telefono = '3415555555',
+        direccion = 'Cordoba 1234'
+    )
+    admin.set_password("123")
+    db.session.add(admin)
+    db.session.commit()
+
+"""  """
+
+
 
 
 # Rutas:
 
-# PRUEBA
+# PRUEBA --- Si es Admin
 @app.route('/dashboard')
 def dashboard():
     return render_template('auth/dashboard.html')
 # ----
+
+""" Agregar un nuevo Usuario """
+@app.route('/add', methods=["POST"])
+def add_contact() -> Response | str:
+    name: str = request.form["name"]
+    apellido: str = request.form["surname"]
+    email: str = request.form["email"]
+    telefono: str = request.form["tel"]
+    direccion: str = request.form["direccion"]
+    password: str = request.form["password"]
+	
+    nuevo_Usuario: Usuario = Usuario(nombre=name, apellido=apellido, email=email, telefono=telefono, direccion=direccion)
+    nuevo_Usuario.set_password(password)
+
+    db.session.add(nuevo_Usuario)
+    # AGREGA EL CONTACTO A LA BBDD
+    db.session.commit()
+
+    return redirect(url_for("index"))
+
+
 
 @app.route('/')
 def index():

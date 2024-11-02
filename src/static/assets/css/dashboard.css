@@ -115,7 +115,7 @@ h2 {
   border-radius: 4px;
 }
 
-form {
+#agregar-producto-form {
   display: grid;
   gap: 1rem;
   max-width: 500px;
