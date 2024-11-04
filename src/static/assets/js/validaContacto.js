@@ -20,8 +20,16 @@ const validaInformacion = (e) => {
     const mensajeValidado = verficaMensaje(mensaje.trim());
 
     if (nombreValidado && apellidoValidado && emailValidado && mensajeValidado) {
-        // alert('validado');
-        e.target.submit();
+        Swal.fire({
+            icon: 'success',
+            title: '¡Listo!',
+            text: 'Hemos recibido su mensaje.',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                e.target.submit();
+            }
+        });
     }
 }
 

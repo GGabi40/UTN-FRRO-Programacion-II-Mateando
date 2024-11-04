@@ -1,12 +1,21 @@
 TO DO LIST
 - agregar mensajes cuando se manda un formulario
-- agregar mensaje cuando se crea una cuenta
-- agregar flask-mail y flask-login a requirements.txt
+    [ OK ] CONTACTO
+    [ OK ] REGISTRO ---> Queda: manejar error de integridad
+    [  ] PRODUCTO
+    [  ] AGG PROD AL CARRITO - Dashboard
+    [  ] CARRITO (al enviar)
+
+
 - botón para cerrar sesión para los clientes
 - creación y vista de carrito
 - poner en uso botón de Agregar al carrito
-- armar formulario para restaurar contraseña
+
+[ ] armar formulario para restaurar contraseña --> Agg funcionalidad
+
 - manejar error 405 (Method not allowed)
+ |--> tambien: IntegrityError : si 2 mails son iguales
+
 - validar formulario de carga y edición de productos
 - agregar una tabla Ventas (id_usuario, total, nro_factura)
 - acomodar vista de productos.html
@@ -30,6 +39,8 @@ DONE:
 - filtrar por categoría de producto CHECK
 - activar la búsqueda de productos desde la barra de arriba CHECK
 - armar formulario para mandar consulta CHECK
+[ OK ] agregar mensaje cuando se crea una cuenta
+[ OK ] agregar flask-mail y flask-login a requirements.txt
 
 
 MAIL DE MATEANDO

@@ -26,9 +26,23 @@ const validaRegistro = (e) => {
 
 
     if (nombreValidado && apellidoValidado && emailValidado && telefonoValidado && direccionValidada && passswordValidada) {
-        e.target.submit();
+        Swal.fire({
+            icon: 'success',
+            title: '¡Listo!',
+            text: 'Usuario Registrado con Éxito.',
+            confirmButtonText: 'Ok'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                e.target.submit();
+            }
+        });
     } else {
-        alert('Verifique sus datos...');
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '¡Algo pasó!',
+            confirmButtonText: 'Aceptar'
+        });
     }
 }
 
