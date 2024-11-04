@@ -1,7 +1,7 @@
 TO DO LIST
 - agregar mensajes cuando se manda un formulario
     [ OK ] CONTACTO
-    [ OK ] REGISTRO ---> Queda: manejar error de integridad
+    [ OK ] REGISTRO ---> Queda: manejar error de integridad (cuando 2 mails son =)
     [  ] PRODUCTO
     [  ] AGG PROD AL CARRITO - Dashboard
     [  ] CARRITO (al enviar)
@@ -18,8 +18,8 @@ TO DO LIST
 - validar formulario de carga y edición de productos
 - agregar una tabla Ventas (id_usuario, total, nro_factura)
 - acomodar vista de productos.html
-   - grid rari
-   - agregar estilo al texto de "No se encontraron productos."
+   (No terminado) - grid rari 
+   [OK] agregar estilo al texto de "No se encontraron productos."
 
 
 OPTIONAL:
@@ -41,6 +41,7 @@ DONE:
 [ OK ] agregar mensaje cuando se crea una cuenta
 [ OK ] agregar flask-mail y flask-login a requirements.txt
 [ OK ] botón para cerrar sesión para los clientes
+[ OK ] al tocar icono login siendo admin -> te lleva al dashboard
 
 
 MAIL DE MATEANDO

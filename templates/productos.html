@@ -7,36 +7,40 @@
         <form id="filter-form">
           <div>
             <input type="checkbox" id="todos" class="filter-checkbox" data-filter="todos" checked>
-            <label for="todos">Todos</label>
+            <label for="todos" class="label-filter">Todos</label>
           </div>
           <div>
             <input type="checkbox" id="mates" class="filter-checkbox" data-filter="mates">
-            <label for="mates">Mates</label>
+            <label for="mates" class="label-filter">Mates</label>
           </div>
           <div>
             <input type="checkbox" id="termos" class="filter-checkbox" data-filter="termos">
-            <label for="termos">Termos</label>
+            <label for="termos" class="label-filter">Termos</label>
           </div>
           <div>
             <input type="checkbox" id="bombillas" class="filter-checkbox" data-filter="bombillas">
-            <label for="bombillas">Bombillas</label>
+            <label for="bombillas" class="label-filter">Bombillas</label>
           </div>
           <div>
             <input type="checkbox" id="sets" class="filter-checkbox" data-filter="sets">
-            <label for="sets">Sets Materos</label>
+            <label for="sets" class="label-filter">Sets Materos</label>
+          </div>
+          <div>
+            <input type="checkbox" id="yerba" class="filter-checkbox" data-filter="yerba">
+            <label for="yerba" class="label-filter">Yerba</label>
           </div>
         </form>
       </aside>
       
     {% if productos %}
-      <div id="productos">
+      <div class="producto-categoria">
         {% for producto in productos %}
         <div class="producto">
           <div class="imagen-producto">
             <img src="{{ producto.image_url }}" alt="Foto Producto" />
           </div>
           <div class="info-productos">
-            <span class="nombre-producto"><a href="#">{{ producto.nombre.title() }}</a></span>
+            <span class="nombre-producto"><strong class="unid-producto">{{ producto.nombre.title() }}</strong></span>
             <span class="precio">{{ producto.precio }}</span>
             <div class="acciones">
               <button class="btn agregar-carrito">Agregar al carrito</button>
@@ -47,8 +51,15 @@
         {% endfor %}
       </div>
     {% else %}
-    <!-- Si no hay productos, se muestra esto FALTA AGREGARLE ESTILO -->
-      <p>No se encontraron resultados.</p>
+      <div class="error">
+        <div class="mensaje-error">
+          <h2>¡Lo sentimos!</h2>
+          <p>No se encontraron resultados.</p>
+        </div>
+        <div class="mate">
+          <img src="{{ url_for('static', filename='assets/img/error/404.png') }}" alt="Foto Sin Resultados">
+        </div>
+      </div>
     {% endif %}
 </div>
   
