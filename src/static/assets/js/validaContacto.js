@@ -20,8 +20,8 @@ const validaInformacion = (e) => {
     const mensajeValidado = verficaMensaje(mensaje.trim());
 
     if (nombreValidado && apellidoValidado && emailValidado && mensajeValidado) {
-        alert('validado');
-        // formulario.submit();
+        // alert('validado');
+        e.target.submit();
     }
 }
 

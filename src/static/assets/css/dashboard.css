@@ -215,6 +215,8 @@ input[type="submit"]:hover {
 
 .nombre-producto {
   display: block;
+  /* Agregué el color de letra para que no se modifique cuando pasa a dark mode */
+  color:#283618;
 }
 
 .info-productos .precio {

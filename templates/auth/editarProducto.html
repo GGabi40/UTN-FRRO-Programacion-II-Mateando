@@ -30,11 +30,11 @@
             </div>
 
             <div class="dashboard-card">
-                <h2>Agregar Nuevo Producto</h2>
-                <form id="agregar-producto-form" method="post" action="/addProducto">
+                <h2>Editar Producto</h2>
+                <form id="agregar-producto-form" method="post" action="/editarProducto/{{ producto.id_Producto }}">
                     <div>
                         <label for="nombre">Nombre del Producto:</label>
-                        <input type="text" id="nombre" name="nombre" required>
+                        <input type="text" id="nombre" name="nombre" value="{{ producto.nombre }}" required>
                     </div>
                     <div>
                         <label for="categoria">Categoría:</label>
@@ -49,41 +49,16 @@
                     </div>
                     <div>
                         <label for="precio">Precio:</label>
-                        <input type="number" id="precio" name="precio" step="0.01" required>
+                        <input type="number" id="precio" name="precio" step="0.01" value="{{ producto.precio }}" required>
                     </div>
                     <div>
                         <label for="image_url">URL de la Imagen:</label>
-                        <input type="url" id="image_url" name="image_url">
+                        <input type="url" id="image_url" name="image_url" value="{{ producto.image_url }}" >
                     </div>
                     
-                    <input type="submit" value="Agregar Producto">
+                    <input type="submit" value="Editar Producto">
                 </form>
             </div>
-        </div>
-
-        <div class="dashboard-card">
-            <div id="productos">
-                {% for producto in productos %}
-                <div class="producto">
-                  <div class="imagen-producto">
-                    <img src="{{ producto.image_url }}" alt="Foto Producto" />
-                  </div>
-                  <div class="info-productos">
-                    <span class="nombre-producto">{{ producto.nombre.title() }}</a></span>
-                    <span class="precio">{{ producto.precio }}</span>
-                    <div class="acciones">
-                       <!-- CAMBIO PARA EDITAR PRODUCTO  -->
-                      <form class="btn agregar-carrito" method="post" action="/editProducto/{{producto.id_Producto}}">
-                        <input type="submit" value="Editar Producto">
-                      </form>
-                      <form class="btn agregar-carrito" method="post" action="/eliminarProducto/{{producto.id_Producto}}">
-                        <input type="submit" value="Eliminar Producto">
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                {% endfor %}
-              </div>
         </div>
 
     </main>

@@ -27,10 +27,14 @@
         </div>
   
         <div class="buscador">
-          <input type="text" name="search" id="search" aria-label="Buscar en el sitio" placeholder="Buscar..." />
-          <button id="buscador" aria-label="Iniciar búsqueda">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
+          <form method="get" action="/buscar">
+            <input type="text" name="search" id="search" aria-label="Buscar en el sitio" placeholder="Buscar..." />
+            <button type="submit" id="buscador" aria-label="Iniciar búsqueda">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
+          
+          
         </div>
   
         <div class="carrito">
@@ -41,8 +45,8 @@
           <a href="{{ url_for('login') }}" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
             <i class="fa-solid fa-user"></i>
             <span id="iniciarSesion">
-            {% if session.get('nombre') %}
-              {{ session['nombre'] }}
+            {% if current_user.is_authenticated %}
+              {{ current_user.nombre }}
             {% else %}
               Iniciar<br>Sesión
             {% endif %}</span>
@@ -58,10 +62,11 @@
   
           <li><a href="{{ url_for('productos') }}">Productos</a>
               <ul>
-                  <li><a href="#">Mates</a></li>
-                  <li><a href="#">Termos</a></li>
-                  <li><a href="#">Bombillas</a></li>
-                  <li><a href="#">Set matero</a></li>
+                  <li><a href="{{ url_for('productosCat', id_cat=2) }}">Mates</a></li>
+                  <li><a href="{{ url_for('productosCat', id_cat=4) }}">Termos</a></li>
+                  <li><a href="{{ url_for('productosCat', id_cat=3) }}">Bombillas</a></li>
+                  <li><a href="{{ url_for('productosCat', id_cat=1) }}">Set matero</a></li>
+                  <li><a href="{{ url_for('productosCat', id_cat=5) }}">Yerba</a></li>
               </ul>
           </li>
   

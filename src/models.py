@@ -1,6 +1,9 @@
 from . import db
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+
+
 
 
 class Categoria(db.Model):
@@ -11,8 +14,8 @@ class Categoria(db.Model):
 
 
 
-class Productos(db.Model):
-    __tablename__ = 'productos'
+class Producto(db.Model):
+    __tablename__ = 'producto'
     
     id_Producto = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100), nullable=False)
@@ -30,7 +33,7 @@ class Producto_Carrito(db.Model):
     
     id_Producto_Carrito = db.Column(db.Integer, primary_key=True)
     id_carrito = db.Column(db.Integer, db.ForeignKey('carrito.id_carrito'))
-    id_producto = db.Column(db.Integer, db.ForeignKey('productos.id_Producto'))
+    id_producto = db.Column(db.Integer, db.ForeignKey('producto.id_Producto'))
     cantidad = db.Column(db.Integer, nullable=False)
     precio_unidad = db.Column(db.Float, nullable=False)
 
@@ -45,7 +48,7 @@ class Carrito(db.Model):
 
 
 
-class Usuario(db.Model):
+class Usuario(db.Model, UserMixin):
     __tablename__ = 'usuario'
     
     id_usuario = db.Column(db.Integer, primary_key=True)
@@ -63,5 +66,17 @@ class Usuario(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
     
+    def get_id(self):
+        return str(self.id_usuario)
+
+    def is_authenticated(self):
+        return True # Flask-Login ya lo gestiona con UserMixin
+
+    def is_active(self):
+        return True  # Esto controla si el usuario puede iniciar sesión
     
+    def is_anonymous(self):
+        return False  # Para usuarios no autenticados
+    
+
 

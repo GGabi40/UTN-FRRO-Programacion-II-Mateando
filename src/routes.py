@@ -6,36 +6,31 @@ from . import db
 main = Blueprint('main', __name__)
 
 
+from flask_login import login_user
+
 @main.route('/iniciarSesion', methods=['GET', 'POST'])
 def iniciarSesion():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
         
-        # Buscar el usuario por su email
         usuario = Usuario.query.filter_by(email=email).first()
         
-        # Verificar la contraseña
         if usuario and usuario.check_password(password):
-            # Guardar el usuario en la sesión
-            session['id_usuario'] = usuario.id_usuario
-            session['nombre'] = usuario.nombre
-            
-            if usuario.es_admin:
-                return redirect(url_for('dashboard'))
-            
+            login_user(usuario)  # Usa este método para loguear al usuario
             flash("Inicio de sesión exitoso", "success")
-            return redirect(url_for('index'))
+            return redirect(url_for('dashboard' if usuario.es_admin else 'index'))
         else:
             flash("Email o contraseña incorrectos", "danger")
     
     return render_template('index.html')
 
 
+
+from flask_login import logout_user
+
 @main.route('/logout')
 def logout():
-    # Limpiar la sesión
-    session.pop('id_usuario', None)
-    session.pop('nombre', None)
+    logout_user()  # Cierra la sesión del usuario
     flash("Cierre de sesión exitoso", "info")
     return redirect(url_for('index'))

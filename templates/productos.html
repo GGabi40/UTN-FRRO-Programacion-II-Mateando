@@ -27,25 +27,29 @@
           </div>
         </form>
       </aside>
-  
-    <div id="productos">
-        {# {% for producto in productos %} #}
-        
+      
+    {% if productos %}
+      <div id="productos">
+        {% for producto in productos %}
         <div class="producto">
           <div class="imagen-producto">
-            <img src="/ruta" alt="Foto Producto" />
+            <img src="{{ producto.image_url }}" alt="Foto Producto" />
           </div>
           <div class="info-productos">
-            <span class="nombre-producto"><a href="#">Nombre</a></span>
-            <span class="precio">10.000</span>
+            <span class="nombre-producto"><a href="#">{{ producto.nombre.title() }}</a></span>
+            <span class="precio">{{ producto.precio }}</span>
             <div class="acciones">
               <button class="btn agregar-carrito">Agregar al carrito</button>
               <button class="btn comprar">Comprar</button>
             </div>
           </div>
         </div>
-        {# {% endfor %} #}
+        {% endfor %}
       </div>
+    {% else %}
+    <!-- Si no hay productos, se muestra esto FALTA AGREGARLE ESTILO -->
+      <p>No se encontraron resultados.</p>
+    {% endif %}
 </div>
   
 {% endblock %}
