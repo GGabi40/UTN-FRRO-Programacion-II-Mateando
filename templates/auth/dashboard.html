@@ -12,7 +12,8 @@
 
 <body>
     <header>
-        <div class="logo" aria-label="Logo Mateando">Mateando</div>
+        <div class="logo" aria-label="Logo Mateando"><a href="{{ url_for('index') }}" id="link">Mateando</a></div>
+        
         <div class="header-buttons">
             
             <button class="modo-oscuro" onclick="toggleDarkMode()">Modo Oscuro</button>
@@ -35,6 +36,7 @@
                     <div>
                         <label for="nombre">Nombre del Producto:</label>
                         <input type="text" id="nombre" name="nombre" required>
+                        <div class="error" id="errorNombre"></div>
                     </div>
                     <div>
                         <label for="categoria">Categoría:</label>
@@ -46,10 +48,12 @@
                             <option value="4">Termo</option>
                             <option value="5">Yerba</option>
                         </select>
+                        <div class="error" id="errorCategoria"></div>
                     </div>
                     <div>
                         <label for="precio">Precio:</label>
-                        <input type="number" id="precio" name="precio" step="0.01" required>
+                        <input type="number" id="precio" name="precio" min="1" step="0.01" required>
+                        <div class="error" id="errorPrecio"></div>
                     </div>
                     <div>
                         <label for="image_url">URL de la Imagen:</label>
@@ -62,6 +66,12 @@
         </div>
 
         <div class="dashboard-card">
+            <div class="buscador">
+                <form method="get" action="/dashboard" id="formularioBuscador">
+                  <input type="text" name="search" id="search" aria-label="Buscar producto..." placeholder="Buscar..." />
+                  <button type="submit" id="buscador" aria-label="Iniciar búsqueda">Buscar</button>
+                </form>
+            </div>
             <div id="productos">
                 {% for producto in productos %}
                 <div class="producto">
@@ -88,6 +98,7 @@
 
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ url_for('static', filename='assets/js/dashboard.js') }}"></script>
 </body>
 

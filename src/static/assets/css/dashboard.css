@@ -42,9 +42,14 @@ header {
   align-items: center;
 }
 
-.logo {
+.logo, #link {
+  text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
+  color: var(--color-primario);
+}
+
+#link:visited {
   color: var(--color-primario);
 }
 
@@ -215,7 +220,6 @@ input[type="submit"]:hover {
 
 .nombre-producto {
   display: block;
-  /* Agregué el color de letra para que no se modifique cuando pasa a dark mode */
   color:#283618;
 }
 
@@ -273,6 +277,45 @@ input[type="submit"]:hover {
 
 .info-productos a:hover {
   color: #007bff;
+}
+
+.buscador input[type="text"] {
+  font-size: 1.4rem;
+  padding-left: 10px;
+  border-radius: 8px;
+  font-family: var(--fuente-principal);
+}
+
+#buscador {
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.buscador, #formularioBuscador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#formularioBuscador {
+  gap: 10px;
+}
+
+.buscador button {
+  border: none;
+  background-color: var(--button-background);
+  font-size: 1.4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.buscador button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: var(--button-hover);
+}
+
+.buscador input[type="text"] {
+  min-width: 250px;
 }
 
 
