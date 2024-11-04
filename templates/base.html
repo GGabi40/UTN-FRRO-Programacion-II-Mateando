@@ -46,11 +46,14 @@
             <i class="fa-solid fa-user"></i>
             <span id="iniciarSesion">
             {% if current_user.is_authenticated %}
-              {{ current_user.nombre }}
+              {{ current_user.nombre.capitalize() }}
             {% else %}
               Iniciar<br>Sesión
             {% endif %}</span>
           </a>
+          {% if current_user.is_authenticated %}
+            <form action="/logout" id="logout"><button class="cerrar-sesion"><i class="fa-solid fa-right-from-bracket"></i></button></form>
+          {% endif %}
         </div>
         
       </header>
@@ -84,9 +87,18 @@
                   <span class="compra" id="carrito-compras">0</span>
                   <i class="fa-solid fa-bag-shopping" style="color: white"></i>
                 </a>
-                <a href="{{ url_for('login') }}" class="usuario" title="Iniciar sesión">
+                <a href="{{ url_for('login') }}" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
                   <i class="fa-solid fa-user"></i>
+                  <span id="iniciarSesion">
+                  {% if current_user.is_authenticated %}
+                    {{ current_user.nombre.capitalize() }}
+                  {% else %}
+                    Iniciar<br>Sesión
+                  {% endif %}</span>
                 </a>
+                {% if current_user.is_authenticated %}
+                  <form action="/logout" id="logout"><button class="cerrar-sesion"><i class="fa-solid fa-right-from-bracket"></i></button></form>
+                {% endif %}
               </div>
             </div>
   

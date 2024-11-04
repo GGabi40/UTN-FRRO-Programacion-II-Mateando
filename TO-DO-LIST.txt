@@ -7,7 +7,6 @@ TO DO LIST
     [  ] CARRITO (al enviar)
 
 
-- botón para cerrar sesión para los clientes
 - creación y vista de carrito
 - poner en uso botón de Agregar al carrito
 
@@ -41,6 +40,7 @@ DONE:
 - armar formulario para mandar consulta CHECK
 [ OK ] agregar mensaje cuando se crea una cuenta
 [ OK ] agregar flask-mail y flask-login a requirements.txt
+[ OK ] botón para cerrar sesión para los clientes
 
 
 MAIL DE MATEANDO
