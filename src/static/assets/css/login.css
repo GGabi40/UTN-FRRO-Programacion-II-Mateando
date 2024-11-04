@@ -1,4 +1,3 @@
-/* ----- COPIAR ----- */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 /* 
@@ -355,6 +354,11 @@ form,
   align-items: center;
 }
 
+form .error {
+  color: red;
+  margin-top: 8px;
+}
+
 form .label {
   font-size: 1.8rem;
   margin-top: 8px;
@@ -363,6 +367,7 @@ form .label {
 }
 
 form input[type="email"],
+form input[type="text"],
 form input[type="password"] {
   height: 40px;
   width: 100%;
@@ -610,4 +615,3 @@ form input[type="submit"]:hover {
     font-size: 2rem;
   }
 }
-/* --- HASTA AQUÍ --- */

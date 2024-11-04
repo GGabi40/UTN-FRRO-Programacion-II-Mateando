@@ -152,8 +152,10 @@
       </button>
     </div>
     
-    <script src="{{ url_for('static', filename='assets/js/buttons.js') }}"></script>
     <script src="{{ url_for('static', filename='assets/js/menu-mobile.js') }}"></script>
 
+    {% block script %}
+      
+    {% endblock %}
 </body>
 </html>
