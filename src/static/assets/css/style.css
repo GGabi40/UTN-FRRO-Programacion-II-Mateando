@@ -566,6 +566,14 @@ footer .contacto img {
   padding-top: 20px;
 }
 
+.unid-producto {
+  font-weight: 600;
+}
+
+.unid-producto:hover {
+  color: blue
+}
+
 .producto {
   min-height: 330px;
   width: 250px;

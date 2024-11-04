@@ -1,0 +1,37 @@
+TO DO LIST
+- agregar mensajes cuando se manda un formulario
+- agregar mensaje cuando se crea una cuenta
+- agregar flask-mail y flask-login a requirements.txt
+- botón para cerrar sesión para los clientes
+- creación y vista de carrito
+- poner en uso botón de Agregar al carrito
+- armar formulario para restaurar contraseña
+- manejar error 405 (Method not allowed)
+- validar formulario de carga y edición de productos
+- agregar una tabla Ventas (id_usuario, total, nro_factura)
+- acomodar vista de productos.html
+   - grid rari
+   - agregar estilo al texto de "No se encontraron productos."
+
+
+OPTIONAL:
+- limitar la cantidad de productos que se muestran en index.html
+- crear una vista para que el usuario modifique sus datos
+- poner un buscador o un filtro para mostrar en el dashboard
+  los productos que queremos encontrar para editar/eliminar
+- búsqueda dinámica en la barrita de arriba (que se vayan
+  actualizando los resultados mientras el usuario escribe
+  en una barrita desplegable)
+
+DONE:
+- editar y eliminar productos de la tabla CHECK
+- admisión de ingreso a "dashboard" solo para el admin CHECK
+  (uso de Flask-Login)
+- filtrar por categoría de producto CHECK
+- activar la búsqueda de productos desde la barra de arriba CHECK
+- armar formulario para mandar consulta CHECK
+
+
+MAIL DE MATEANDO
+cuenta: mateando.ando6@gmail.com
+password: Mateando63!

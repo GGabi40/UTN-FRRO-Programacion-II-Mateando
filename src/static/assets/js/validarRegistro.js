@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const validaRegistro = (e) => {
+    e.preventDefault();
+    
     const caracteresValidosText = /^[a-zA-Z\s]+$/;
 
     const name = document.getElementById("name").value;
@@ -23,8 +25,10 @@ const validaRegistro = (e) => {
     const passswordValidada = verificaPass(password.trim(), confirmPassword.trim());
 
 
-    if (nombreValidado && apellidoValidado && emailValidado && telefonoValidado && direccionValidada && telefonoValidado && passswordValidada) {
+    if (nombreValidado && apellidoValidado && emailValidado && telefonoValidado && direccionValidada && passswordValidada) {
         e.target.submit();
+    } else {
+        alert('Verifique sus datos...');
     }
 }
 
