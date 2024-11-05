@@ -13,9 +13,9 @@
 <body>
     <header>
         <div class="logo" aria-label="Logo Mateando"><a href="{{ url_for('index') }}" id="link">Mateando</a></div>
-        
+
         <div class="header-buttons">
-            
+
             <button class="modo-oscuro" onclick="toggleDarkMode()">Modo Oscuro</button>
             <form action="/logout"><button class="cerrar-sesion">Cerrar Sesión</button></form>
         </div>
@@ -59,7 +59,7 @@
                         <label for="image_url">URL de la Imagen:</label>
                         <input type="url" id="image_url" name="image_url">
                     </div>
-                    
+
                     <input type="submit" value="Agregar Producto">
                 </form>
             </div>
@@ -67,33 +67,45 @@
 
         <div class="dashboard-card">
             <div class="buscador">
-                <form method="get" action="/dashboard" id="formularioBuscador">
-                  <input type="text" name="search" id="search" aria-label="Buscar producto..." placeholder="Buscar..." />
-                  <button type="submit" id="buscador" aria-label="Iniciar búsqueda">Buscar</button>
+                <form method="get" action="/buscarDashboard" id="formularioBuscador">
+                    <input type="text" name="search" id="search" aria-label="Buscar producto..."
+                        placeholder="Buscar..." />
+                    <button type="submit" id="buscador" aria-label="Iniciar búsqueda">Buscar</button>
                 </form>
             </div>
+            {% if productos %}
             <div id="productos">
                 {% for producto in productos %}
                 <div class="producto">
-                  <div class="imagen-producto">
-                    <img src="{{ producto.image_url }}" alt="Foto Producto" />
-                  </div>
-                  <div class="info-productos">
-                    <span class="nombre-producto">{{ producto.nombre.title() }}</a></span>
-                    <span class="precio">{{ producto.precio }}</span>
-                    <div class="acciones">
-                       <!-- CAMBIO PARA EDITAR PRODUCTO  -->
-                      <form class="btn agregar-carrito" method="post" action="/editProducto/{{producto.id_Producto}}">
-                        <input type="submit" value="Editar Producto">
-                      </form>
-                      <form class="btn agregar-carrito" method="post" action="/eliminarProducto/{{producto.id_Producto}}">
-                        <input type="submit" value="Eliminar Producto">
-                      </form>
+                    <div class="imagen-producto">
+                        <img src="{{ producto.image_url }}" alt="Foto Producto" />
                     </div>
-                  </div>
+                    <div class="info-productos">
+                        <span class="nombre-producto">{{ producto.nombre.title() }}</a></span>
+                        <span class="precio">{{ producto.precio }}</span>
+                        <div class="acciones">
+                            <!-- CAMBIO PARA EDITAR PRODUCTO  -->
+                            <form class="btn agregar-carrito" method="post"
+                                action="/editProducto/{{producto.id_Producto}}">
+                                <input type="submit" value="Editar Producto">
+                            </form>
+                            <form class="btn agregar-carrito" method="post"
+                                action="/eliminarProducto/{{producto.id_Producto}}">
+                                <input type="submit" value="Eliminar Producto">
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 {% endfor %}
-              </div>
+            </div>
+            {% else %}
+            <div class="error">
+                <div class="mensaje-error">
+                    <h2>¡Lo sentimos!</h2>
+                    <p>No se encontraron resultados.</p>
+                </div>
+            </div>
+            {% endif %}
         </div>
 
     </main>
