@@ -400,14 +400,11 @@ def no_encontrado(error):
     return render_template('errors/error404.html', error=error)
 
 
-<<<<<<< HEAD
 @app.errorhandler(405)
 def method_not_allowed(error):
     return render_template('errors/error405.html', error=error), 405
 
 
-=======
->>>>>>> 79519281ae83a1c381c4ff3602f702f8f7bb442f
 @app.errorhandler(500)
 def internal_server():
     return render_template('errors/error500.html')
