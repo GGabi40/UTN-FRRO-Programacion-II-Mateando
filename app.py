@@ -132,8 +132,8 @@ def add_usuario() -> Response | str:
     return redirect(url_for("index"))
 
 
-
-@app.route('/verificaEmail', methods=['POST'])
+""" Verifica si hay un mail ya registrado -> Lo llama el JS """
+@app.route('/verificarEmail', methods=['POST'])
 def verificaEmail():
     email = request.json.get('email')
     usuario = Usuario.query.filter_by(email=email).first()
@@ -142,7 +142,6 @@ def verificaEmail():
         return jsonify({'existe': True})
     else:
         return jsonify({'existe': False})
-
 
 
 @app.route('/addProducto', methods=["POST"])
@@ -377,7 +376,6 @@ def quienesSomos():
 @app.route('/carrito')
 def carrito():
     return render_template('/carrito.html')
-
 
 
 

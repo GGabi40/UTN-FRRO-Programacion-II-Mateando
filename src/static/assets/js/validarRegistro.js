@@ -72,7 +72,7 @@ const verificaEmailUnico = async (email) => {
         });
 
         const data = await response.json();
-        // retorna 'false' si ya existe
+        // retorna 'true' si ya existe
         return !data.existe;
     } catch (error) {
         console.error('Error al verificar el email: ', error);
