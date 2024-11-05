@@ -318,6 +318,25 @@ input[type="submit"]:hover {
   min-width: 250px;
 }
 
+.sugerencias-container {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.sugerencia-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.sugerencia-item:hover {
+  background-color: #f0f0f0;
+}
+
 
 
 @media (max-width: 768px) {

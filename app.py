@@ -86,7 +86,6 @@ def init_db():
 
 # Rutas:
 
-# PRUEBA
 # Solo entra si es_Admin = True
 @app.route('/dashboard')
 @login_required  # Asegura que solo los usuarios autenticados puedan acceder
@@ -144,6 +143,7 @@ def verificaEmail():
         return jsonify({'existe': False})
 
 
+
 @app.route('/addProducto', methods=["POST"])
 def add_producto() -> Response | str:
     nombre: str = request.form['nombre']
@@ -163,6 +163,8 @@ def add_producto() -> Response | str:
         print(f"Error al agregar el producto: {e}")
 
     return redirect(url_for("dashboard"))
+
+
 
 # -------------------------------------------------------------------------------------
 # AGREGADO POR JUSTI
@@ -220,6 +222,14 @@ def buscar_dashboard():
         productos = []  # Si no hay consulta, no devuelve resultados
 
     return render_template('auth/dashboard.html', productos=productos)
+
+""" Obtiene productos (llamado por JS) """
+@app.route('/obtenerProductos', methods=['GET'])
+def obtener_productos():
+    productos = Producto.query.all()
+    resultados = [{"id": producto.id_Producto, "nombre": producto.nombre, "precio": producto.precio, "image_url": producto.image_url} for producto in productos]
+    return jsonify(resultados)
+
 
 #RUTAS DE PRODUCTOS
 
