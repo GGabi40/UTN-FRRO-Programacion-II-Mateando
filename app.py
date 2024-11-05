@@ -223,12 +223,14 @@ def buscar_dashboard():
 
     return render_template('auth/dashboard.html', productos=productos)
 
+
 """ Obtiene productos (llamado por JS) """
 @app.route('/obtenerProductos', methods=['GET'])
 def obtener_productos():
     productos = Producto.query.all()
     resultados = [{"id": producto.id_Producto, "nombre": producto.nombre, "precio": producto.precio, "image_url": producto.image_url} for producto in productos]
     return jsonify(resultados)
+
 
 
 #RUTAS DE PRODUCTOS
