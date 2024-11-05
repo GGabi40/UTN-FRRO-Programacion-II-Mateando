@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-  <form action="/" aria-labelledby="form-titulo">
+  <form method="post" action="/enviarContraseniaTemporal" aria-labelledby="form-titulo">
     <div class="inicio-formulario" id="form-titulo">
       <img src="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" alt="LOGO" loading="lazy" />
       <p>¿Olvidaste tu contraseña?</p>
@@ -15,14 +15,14 @@
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" required />
     </div>
-    <div class="label">
+    <!-- <div class="label">
       <label for="pass">Ingresar nueva contraseña:</label>
       <input type="password" name="pass" id="pass" required />
     </div>
     <div class="label">
       <label for="pass">Repetir nueva contraseña:</label>
       <input type="password" name="pass" id="pass" required />
-    </div>
+    </div> -->
     <input
       type="submit"
       value="Recuperar Contaseña"
