@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-const validaRegistro = (e) => {
+const validaRegistro = async (e) => {
     e.preventDefault();
     
     const caracteresValidosText = /^[a-zA-Z\s]+$/;
@@ -25,6 +25,19 @@ const validaRegistro = (e) => {
     const passswordValidada = verificaPass(password.trim(), confirmPassword.trim());
 
 
+    const emailValido = await verificaEmailUnico(email.trim());
+
+    if (!emailValido) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '¡El email ya está registrado!',
+            confirmButtonText: 'Ok'
+        });
+        return;
+    }
+
+
     if (nombreValidado && apellidoValidado && emailValidado && telefonoValidado && direccionValidada && passswordValidada) {
         Swal.fire({
             icon: 'success',
@@ -43,6 +56,27 @@ const validaRegistro = (e) => {
             text: '¡Algo pasó!',
             confirmButtonText: 'Aceptar'
         });
+    }
+
+}
+
+// Verifica si el email está registrado
+const verificaEmailUnico = async (email) => {
+    try {
+        const response = await fetch('/verificarEmail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email })
+        });
+
+        const data = await response.json();
+        // retorna 'false' si ya existe
+        return !data.existe;
+    } catch (error) {
+        console.error('Error al verificar el email: ', error);
+        return false;
     }
 }
 

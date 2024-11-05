@@ -10,8 +10,7 @@ TO DO LIST
 - creación y vista de carrito
 - poner en uso botón de Agregar al carrito
 - armar formulario para restaurar contraseña --> Agg funcionalidad
-- manejar error 405 (Method not allowed)
- |--> tambien: IntegrityError : si 2 mails son iguales
+
 
 - agregar una tabla Ventas (id_usuario, total, nro_factura)
 - acomodar vista de productos.html
@@ -44,6 +43,8 @@ DONE:
 - al tocar icono login siendo admin -> te lleva al dashboard
 - validar formulario de carga
 - validar edición de productos
+- manejar error 405 (Method not allowed)
+- tambien: IntegrityError : si 2 mails son iguales
 
 
 MAIL DE MATEANDO

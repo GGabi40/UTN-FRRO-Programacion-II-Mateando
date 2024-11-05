@@ -1,6 +1,6 @@
 from src import crear_app, db
 from typing import List, Tuple, Any
-from flask import render_template, request, Response, redirect, url_for, flash
+from flask import render_template, request, Response, redirect, url_for, flash, jsonify
 from flask_login import login_required, current_user, LoginManager
 from flask_mail import Mail, Message
 
@@ -107,6 +107,19 @@ def add_usuario() -> Response | str:
     db.session.commit()
 
     return redirect(url_for("index"))
+
+
+
+@app.route('/verificaEmail', methods=['POST'])
+def verificaEmail():
+    email = request.json.get('email')
+    usuario = Usuario.query.filter_by(email=email).first()
+    
+    if usuario:
+        return jsonify({'existe': True})
+    else:
+        return jsonify({'existe': False})
+
 
 
 @app.route('/addProducto', methods=["POST"])
@@ -284,6 +297,12 @@ def registrarse():
 @app.errorhandler(404)
 def no_encontrado(error):
     return render_template('errors/error404.html', error=error)
+
+
+@app.errorhandler(405)
+def method_not_allowed(error):
+    return render_template('errors/error405.html', error=error), 405
+
 
 @app.errorhandler(500)
 def internal_server():
