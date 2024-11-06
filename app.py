@@ -115,11 +115,6 @@ def add_usuario() -> Response | str:
     direccion: str = request.form["direccion"]
     password: str = request.form["password"]
 
-    # Verificar si el correo ya está registrado
-    usuario_existente = Usuario.query.filter_by(email=email).first()
-    if usuario_existente:
-        mensaje = "El correo ya está registrado. Por favor, usa otro correo."
-        return render_template("registrarse.html", mensaje=mensaje)  # Se queda en la página de registro y muestra un error
 
     nuevo_Usuario: Usuario = Usuario(
         nombre=name, apellido=apellido, email=email, telefono=telefono, direccion=direccion)
@@ -231,6 +226,12 @@ def obtener_productos():
     resultados = [{"id": producto.id_Producto, "nombre": producto.nombre, "precio": producto.precio, "image_url": producto.image_url} for producto in productos]
     return jsonify(resultados)
 
+
+
+""" Productos al carrito """
+@app.route('/agregaCarrito', methods=["POST"])
+#def agrega_carrito():
+    
 
 
 #RUTAS DE PRODUCTOS

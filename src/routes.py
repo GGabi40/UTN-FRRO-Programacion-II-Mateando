@@ -19,6 +19,13 @@ def iniciarSesion():
         if usuario and usuario.check_password(password):
             login_user(usuario)  # Usa este método para loguear al usuario
             flash("Inicio de sesión exitoso", "success")
+            nuevoCarrito: Carrito = Carrito (
+                id_usuario = usuario.id_usuario
+            )
+            
+            db.session.add(nuevoCarrito)
+            db.session.commit()
+                
             return redirect(url_for('dashboard' if usuario.es_admin else 'index'))
         else:
             flash("Email o contraseña incorrectos", "danger")

@@ -45,7 +45,15 @@ class Carrito(db.Model):
     id_carrito = db.Column(db.Integer, primary_key=True)
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id_usuario'))
     fecha_creacion = db.Column(db.Date, default=datetime.datetime.now())
+    total = db.Column(db.Float, nullable=False)
 
+
+class Venta(db.Model):
+    __tablename__ = 'venta'
+    
+    id_venta = db.Column(db.Integer, primary_key=True)
+    id_carrito = db.Column(db.Integer, db.ForeignKey('carrito.id_carrito'))
+    nro_factura = db.Column(db.Integer, unique=True, nullable=False)
 
 
 class Usuario(db.Model, UserMixin):

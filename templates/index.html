@@ -26,8 +26,11 @@
       <div class="info-productos">
         <span class="nombre-producto"><strong class="unid-producto">{{ producto.nombre.title() }}</strong></span>
         <span class="precio">{{ producto.precio }}</span>
+
         <div class="acciones">
-          <button class="btn agregar-carrito">Agregar al carrito</button>
+          <form action="/agregaCarrito" class="acciones" method="POST">
+            <button class="btn agregar-carrito">Agregar al carrito</button>
+          </form>
           <button class="btn comprar">Comprar</button>
         </div>
       </div>
