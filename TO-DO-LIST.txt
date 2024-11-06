@@ -45,7 +45,7 @@ DONE:
   los productos que queremos encontrar para editar/eliminar
 - armar formulario para restaurar contraseña (con contraseña temporal)
 - manejar error de integridad (cuando 2 mails son =)
-
+- Cambiar textos a Grupo 2
 
 
 MAIL DE MATEANDO
