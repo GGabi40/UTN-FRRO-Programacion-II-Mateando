@@ -362,11 +362,6 @@ def enviar_contrasenia_temporal():
 
     return redirect(url_for('index'))
 
-#RUTA A MI PERFIL CON AUTORIZACIÓN
-@app.route('/miPerfil')
-@login_required  # Asegura que solo los usuarios autenticados puedan acceder
-def miPerfil():
-    return render_template("auth/miPerfil.html")
 
 #Actualiza los datos del usuario (current_user == FlaskLogin) segun lo ingresado en el form
 @app.route('/updateProfile', methods=['GET','POST'])
