@@ -6,10 +6,13 @@ TO DO LIST
     [ OK ] PRODUCTO
     [  ] AGG PROD AL CARRITO - Dashboard
     [  ] CARRITO (al enviar)
+    [  ] Cuando se envía el reestablecimiento de contraseña
+    [  ] Cuando se ingresa un correo o una contraseña incorrecta en el login
 
 - creación y vista de carrito
 - poner en uso botón de Agregar al carrito
-- armar formulario para restaurar contraseña --> Agg funcionalidad
+- agregar botón para salir de miPerfil sin necesidad de modificar datos
+
 
 - agregar una tabla Ventas (id_usuario, total, nro_factura)
 - acomodar vista de productos.html
@@ -46,6 +49,7 @@ DONE:
 - armar formulario para restaurar contraseña (con contraseña temporal)
 - manejar error de integridad (cuando 2 mails son =)
 - Cambiar textos a Grupo 2
+- armar formulario para restaurar contraseña con funcionalidad
 
 
 MAIL DE MATEANDO

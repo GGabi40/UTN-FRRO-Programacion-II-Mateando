@@ -22,8 +22,6 @@ login_manager.init_app(app)
 login_manager.login_view = "login"  # Vista de login
 
 # Función para cargar el usuario a partir de su ID
-
-
 @login_manager.user_loader
 def load_user(user_id):
     return Usuario.query.get(int(user_id))
@@ -364,6 +362,32 @@ def enviar_contrasenia_temporal():
 
     return redirect(url_for('index'))
 
+#RUTA A MI PERFIL CON AUTORIZACIÓN
+@app.route('/miPerfil')
+@login_required  # Asegura que solo los usuarios autenticados puedan acceder
+def miPerfil():
+    return render_template("auth/miPerfil.html")
+
+#Actualiza los datos del usuario (current_user == FlaskLogin) segun lo ingresado en el form
+@app.route('/updateProfile', methods=['GET','POST'])
+def updateProfile():
+
+    current_user.nombre = request.form['name']
+    current_user.apellido = request.form['surname']
+    current_user.email = request.form['email']
+    current_user.telefono = request.form['tel']
+    current_user.direccion = request.form['direccion']
+
+    db.session.commit()
+    return redirect(url_for("index"))
+
+@app.route('/deleteAccount', methods=["POST"])
+def deleteAccount():
+
+    db.session.delete(current_user)
+    db.session.commit()
+
+    return redirect(url_for("index"))
 
 # FIN AGREGADO POR JUSTI
 # --------------------------------------------------------------------------------------
