@@ -1,6 +1,22 @@
+const darkModeButton = document.querySelector('.modo-oscuro');
+const body = document.body;
+
+darkModeButton.addEventListener('click', toggleDarkMode);
+
 function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
+  body.classList.toggle("dark-mode");
+
+  const enModoOscuro = body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', enModoOscuro);
+  darkModeButton.textContent = enModoOscuro ? 'Modo Claro' : 'Modo Oscuro';
 }
+
+const modoOscuroGuardado = localStorage.getItem('darkMode');
+if (modoOscuroGuardado === 'true') {
+    body.classList.add('dark-mode');
+    darkModeButton.textContent = 'Modo Claro';
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const formulario = document.getElementById("agregar-producto-form");

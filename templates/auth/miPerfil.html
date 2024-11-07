@@ -80,22 +80,22 @@
 </main>
 
     <script>
-        // Funcionalidad para el modo oscuro
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeButton = document.getElementById('dark-mode-toggle');
         const body = document.body;
 
-        darkModeToggle.addEventListener('click', () => {
+        // Evento para cuando se cliquea el botón
+        darkModeButton.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            const isDarkMode = body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
-            darkModeToggle.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
+            const enModoOscuro = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', enModoOscuro);
+            darkModeButton.textContent = enModoOscuro ? 'Modo Claro' : 'Modo Oscuro';
         });
 
-        // Verificar la preferencia guardada del usuario
-        const savedDarkMode = localStorage.getItem('darkMode');
-        if (savedDarkMode === 'true') {
+        // verifica si hay una preferencia guardada
+        const modoOscuroGuardado = localStorage.getItem('darkMode');
+        if (modoOscuroGuardado === 'true') {
             body.classList.add('dark-mode');
-            darkModeToggle.textContent = 'Modo Claro';
+            darkModeButton.textContent = 'Modo Claro';
         }
 
         // Confirmación antes de eliminar la cuenta
