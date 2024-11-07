@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateando | Mi Perfil</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/mi-perfil.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Mi Perfil</h1>
+        <button id="dark-mode-toggle">Cambiar Modo</button>
+    </header>
+
+    <main>
+        {# 
+        <section class="profile-section">
+            <h2>Datos del Usuario</h2>
+            <form id="update-profile" method="post" action="/updateProfile">
+                <div class="label">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" value="{{ usuario.nombre }}" required>
+                    <div class="error" id="errorNombre"></div>
+                </div>
+
+                <div class="label">
+                    <label for="surname">Apellido:</label>
+                    <input type="text" id="surname" name="surname" value="{{ usuario.apellido }}" required>
+                    <div class="error" id="errorApellido"></div>
+                </div>
+
+                <div class="label">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ usuario.email }}" required>
+                    <div class="error" id="errorEmail"></div>
+                </div>
+
+                <div class="label">
+                    <label for="tel">Teléfono:</label>
+                    <input type="text" id="tel" name="tel" value="{{ usuario.tel }}" required>
+                    <div class="error" id="errorTelefono"></div>
+                </div>
+
+                <div class="label">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" value="{{ usuario.direccion }}" required>
+                    <div class="error" id="errorDireccion"></div>
+                </div>
+
+                <div class="actions">
+                    <input type="submit" value="Actualizar Datos">
+                </div>
+            </form>
+        </section>
+
+        <section class="profile-section">
+            <h2>Cambiar Contraseña</h2>
+            <form id="change-password" method="post" action="/changePassword">
+                <div class="label">
+                    <label for="current-password">Contraseña Actual:</label>
+                    <input type="password" id="current-password" name="current-password" required>
+                    <div class="error" id="errorCurrentPassword"></div>
+                </div>
+
+                <div class="label">
+                    <label for="new-password">Nueva Contraseña:</label>
+                    <input type="password" id="new-password" name="new-password" required>
+                    <div class="error" id="errorNewPassword"></div>
+                </div>
+
+                <div class="label">
+                    <label for="confirm-password">Confirmar Nueva Contraseña:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <div class="error" id="errorConfirmPassword"></div>
+                </div>
+
+                <div class="actions">
+                    <input type="submit" value="Cambiar Contraseña">
+                </div>
+            </form>
+        </section>
+ #}
+        <section class="profile-section">
+            <h2>Eliminar Cuenta</h2>
+            <p>Esta acción es irreversible. Todos tus datos serán eliminados permanentemente.</p>
+            <form id="delete-account" method="post" action="/deleteAccount">
+                <div class="actions">
+                    <button type="submit" class="delete-account">Eliminar mi cuenta</button>
+                </div>
+            </form>
+        </section>
+
+ 
+</main>
+
+    <script>
+        // Funcionalidad para el modo oscuro
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            darkModeToggle.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
+        });
+
+        // Verificar la preferencia guardada del usuario
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = 'Modo Claro';
+        }
+
+        // Confirmación antes de eliminar la cuenta
+        document.getElementById('delete-account').addEventListener('submit', function(e) {
+            if (!confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

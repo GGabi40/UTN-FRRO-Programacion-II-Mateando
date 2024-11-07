@@ -100,6 +100,11 @@ def dashboard():
     return render_template("auth/dashboard.html", productos=productos)
 # ----
 
+@app.route('/miPerfil')
+@login_required
+def mi_Perfil():
+    return render_template('auth/miPerfil.html')
+
 
 """ MOSTRAR A GIULIANNO """
 
