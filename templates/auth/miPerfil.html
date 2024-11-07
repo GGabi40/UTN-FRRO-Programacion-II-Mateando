@@ -9,15 +9,25 @@
 </head>
 <body>
     <header>
-        <h1>Mi Perfil</h1>
-        <button id="dark-mode-toggle">Cambiar Modo</button>
+        <img id="logo"
+        src="{{ url_for('static', filename='assets/img/LOGO-header.webp') }}"
+        alt="Logo de Mateando"
+        loading="lazy"
+        />
+      <h1>Mi Perfil</h1>
+      <div class="botones">
+          <button id="dark-mode-toggle">Cambiar Modo</button>
+          <a href="{{ url_for('index') }}" id="toIndex">
+            Home
+          </a>
+      </div>
     </header>
 
     <main>
- 
         <section class="profile-section">
             <h2>Datos del Usuario</h2>
-            <form id="update-profile" method="post" action="/updateProfile">
+
+            <form id="update-profile" method="post" action="/">
                 <div class="label">
                     <label for="name">Nombre:</label>
                     <input type="text" id="name" name="name" value="{{ current_user.nombre }}" required>
@@ -53,8 +63,8 @@
                     <input type="submit" value="Actualizar Datos">
                 </div>
             </form>
+            
         </section>
-
 
         <section class="profile-section">
             <h2>Eliminar Cuenta</h2>
@@ -70,22 +80,22 @@
 </main>
 
     <script>
-        // Funcionalidad para el modo oscuro
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeButton = document.getElementById('dark-mode-toggle');
         const body = document.body;
 
-        darkModeToggle.addEventListener('click', () => {
+        // Evento para cuando se cliquea el botón
+        darkModeButton.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            const isDarkMode = body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
-            darkModeToggle.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
+            const enModoOscuro = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', enModoOscuro);
+            darkModeButton.textContent = enModoOscuro ? 'Modo Claro' : 'Modo Oscuro';
         });
 
-        // Verificar la preferencia guardada del usuario
-        const savedDarkMode = localStorage.getItem('darkMode');
-        if (savedDarkMode === 'true') {
+        // verifica si hay una preferencia guardada
+        const modoOscuroGuardado = localStorage.getItem('darkMode');
+        if (modoOscuroGuardado === 'true') {
             body.classList.add('dark-mode');
-            darkModeToggle.textContent = 'Modo Claro';
+            darkModeButton.textContent = 'Modo Claro';
         }
 
         // Confirmación antes de eliminar la cuenta

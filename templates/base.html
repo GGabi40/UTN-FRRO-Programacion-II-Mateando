@@ -40,7 +40,7 @@
             <i class="fa-solid fa-bag-shopping"></i>
             <span class="compra" id="carrito-compras">0</span>
           </a>
-          <a href="{% if current_user.es_admin %}{{ url_for('dashboard') }}{% else%} {{ url_for('miPerfil') }} {% endif %}" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
+          <a href="{% if current_user.es_admin %}{{ url_for('dashboard') }}{% else %}{{ url_for('mi_Perfil') }}{% endif %}" class="usuario" title="Iniciar sesión" aria-label="Iniciar sesión">
             <i class="fa-solid fa-user"></i>
             <span id="iniciarSesion">
             {% if current_user.is_authenticated %}

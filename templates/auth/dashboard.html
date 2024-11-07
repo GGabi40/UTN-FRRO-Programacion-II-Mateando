@@ -12,11 +12,12 @@
 
 <body>
     <header>
-        <div class="logo" aria-label="Logo Mateando"><a href="{{ url_for('index') }}" id="link">Mateando</a></div>
+        <div class="logo" aria-label="Logo Mateando">
+            <a href="{{ url_for('index') }}" id="link">Mateando</a>
+        </div>
 
         <div class="header-buttons">
-
-            <button class="modo-oscuro" onclick="toggleDarkMode()">Modo Oscuro</button>
+            <button class="modo-oscuro">Modo Oscuro</button>
             <form action="/logout"><button class="cerrar-sesion">Cerrar Sesión</button></form>
         </div>
     </header>

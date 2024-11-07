@@ -8,6 +8,9 @@
   --back-top: #dda15e;
   --text-color: #283618;
   --card-background: white;
+  --fuente-principal: "Inter", sans-serif;
+  --fuente-titulo: "Josefin Sans", sans-serif;
+  --font-weight-titulo: 400;
 }
 
 .dark-mode {
@@ -22,8 +25,9 @@
   --card-background: #3a4a23;
 }
 
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--fuente-principal);
   background-color: var(--background);
   color: var(--text-color);
   margin: 0;
@@ -32,6 +36,12 @@ body {
   display: flex;
   flex-direction: column;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2 {
+  font-family: var(--fuente-titulo);
+  font-weight: var(--font-weight-titulo);
 }
 
 header {
@@ -59,17 +69,20 @@ header {
 }
 
 .cerrar-sesion,
-.modo-oscuro {
+.modo-oscuro,
+#buscador {
   background-color: var(--button-background);
   color: white;
   border: none;
+  border-radius: 8px;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .cerrar-sesion:hover,
-.modo-oscuro:hover {
+.modo-oscuro:hover,
+#buscador:hover {
   background-color: var(--button-hover);
 }
 
@@ -280,16 +293,12 @@ input[type="submit"]:hover {
 }
 
 .buscador input[type="text"] {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   padding-left: 10px;
   border-radius: 8px;
   font-family: var(--fuente-principal);
 }
 
-#buscador {
-  border-radius: 8px;
-  padding: 8px;
-}
 
 .buscador, #formularioBuscador {
   display: flex;
@@ -299,19 +308,6 @@ input[type="submit"]:hover {
 
 #formularioBuscador {
   gap: 10px;
-}
-
-.buscador button {
-  border: none;
-  background-color: var(--button-background);
-  font-size: 1.4rem;
-  transition: all 0.3s ease-in-out;
-}
-
-.buscador button:hover {
-  cursor: pointer;
-  color: white;
-  background-color: var(--button-hover);
 }
 
 .buscador input[type="text"] {
