@@ -9,17 +9,27 @@
 </head>
 <body>
     <header>
-        <h1>Mi Perfil</h1>
-        <button id="dark-mode-toggle">Cambiar Modo</button>
+        <img id="logo"
+        src="{{ url_for('static', filename='assets/img/LOGO-header.webp') }}"
+        alt="Logo de Mateando"
+        loading="lazy"
+        />
+      <h1>Mi Perfil</h1>
+      <div class="botones">
+          <button id="dark-mode-toggle">Cambiar Modo</button>
+          <a href="{{ url_for('index') }}" id="toIndex">
+            Home
+          </a>
+      </div>
     </header>
 
     <main>
-        {# 
         <section class="profile-section">
             <h2>Datos del Usuario</h2>
-            <form id="update-profile" method="post" action="/updateProfile">
+            {# 
+            <form id="update-profile" method="post" action="/">
                 <div class="label">
-                    <label for="name">Nombre:</label>
+                    <label for="name">Nombre:</label> {# Acá debería aparecer los datos del usuario
                     <input type="text" id="name" name="name" value="{{ usuario.nombre }}" required>
                     <div class="error" id="errorNombre"></div>
                 </div>
@@ -52,9 +62,10 @@
                     <input type="submit" value="Actualizar Datos">
                 </div>
             </form>
+            #}
+            <
         </section>
 
- #}
         <section class="profile-section">
             <h2>Eliminar Cuenta</h2>
             <p>Esta acción es irreversible. Todos tus datos serán eliminados permanentemente.</p>
