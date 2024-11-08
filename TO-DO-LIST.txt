@@ -11,7 +11,6 @@ TO DO LIST
 
 - creación y vista de carrito
 - poner en uso botón de Agregar al carrito
-- agregar botón para salir de miPerfil sin necesidad de modificar datos
 
 
 - agregar una tabla Ventas (id_usuario, total, nro_factura)
@@ -50,6 +49,8 @@ DONE:
 - manejar error de integridad (cuando 2 mails son =)
 - Cambiar textos a Grupo 2
 - armar formulario para restaurar contraseña con funcionalidad
+- agregar botón para salir de miPerfil sin necesidad de modificar datos
+
 
 
 MAIL DE MATEANDO
