@@ -100,10 +100,25 @@
 
         // Confirmación antes de eliminar la cuenta
         document.getElementById('delete-account').addEventListener('submit', function(e) {
-            if (!confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.')) {
-                e.preventDefault();
-            }
+            e.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: 'Esta acción no se puede deshacer.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, eliminar cuenta',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-account').submit();
+                }
+            });
         });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ url_for('static', filename='assets/js/validaActualizacion.js') }}"></script>
 </body>
 </html>
