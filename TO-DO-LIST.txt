@@ -14,6 +14,7 @@ TO DO LIST
 
 
 - agregar una tabla Ventas (id_usuario, total, nro_factura)
+- funcionalidad de filtrado de productos.html (Arranqué pero salta error)
 - acomodar vista de productos.html
    (No terminado) - grid rari 
    [OK] agregar estilo al texto de "No se encontraron productos."

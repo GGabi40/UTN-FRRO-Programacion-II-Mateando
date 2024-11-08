@@ -241,9 +241,34 @@ def obtener_productos():
 
 @app.route('/productos')
 def productos():
-
     productos: List[Tuple[Any]] = Producto.query.all()
     return render_template('/productos.html', productos=productos)
+
+
+""" Filtro de productos -> Seccion Productos (no funca)"""
+@app.route('/filtrar', methods=["POST"])
+def filtrar_productos():
+    categorias = request.json.get('categorias', [])
+    
+    if "todos" in categorias:
+        productos_filtrados = Producto.query.all()
+    else:
+        productos_filtrados = Producto.query.filter(Producto.id_categoria.in_(categorias)).all()
+    
+    productos_filtrados_json = [
+        {
+            "id_Producto": p.id_Producto,
+            "nombre": p.nombre,
+            "precio": p.precio,
+            "image_url": p.image_url,
+            "id_categoria": p.id_categoria
+        }
+        
+        for p in productos_filtrados
+    ]
+        
+    return jsonify(productos=productos_filtrados_json)
+
 
 # Ruta de la barra de búsqueda del header
 @app.route('/buscar', methods=["GET"])
