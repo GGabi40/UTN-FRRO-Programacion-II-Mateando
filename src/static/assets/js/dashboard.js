@@ -1,3 +1,4 @@
+// MODO OSCURO
 const darkModeButton = document.querySelector('.modo-oscuro');
 const body = document.body;
 
@@ -17,7 +18,7 @@ if (modoOscuroGuardado === 'true') {
     darkModeButton.textContent = 'Modo Claro';
 }
 
-
+// FORMULARIO
 document.addEventListener("DOMContentLoaded", () => {
   const formulario = document.getElementById("agregar-producto-form");
 
