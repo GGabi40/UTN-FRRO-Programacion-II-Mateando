@@ -6,9 +6,15 @@
   --gap-between-tooltip-to-button: 18px;
   --button-color: ;
   --tooltip-color: #fff;
+
+  --color-primario: #283618;
+  --color-opciones: #606c38;
+
+  --background: #fefae0;
 }
 
 h1 {
+  color: var(--color-primario);
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 3rem;
