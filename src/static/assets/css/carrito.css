@@ -50,6 +50,10 @@ h1 {
   font-size: 1.6rem;
 }
 
+.compras, .resumen {
+  background: #fff;
+}
+
 .compras table {
   width: 100%;
   border-collapse: collapse;
