@@ -4,10 +4,15 @@ TO DO LIST
     [ OK ] REGISTRO ---> Queda: mostrar mensaje de error cuando se ingresan dos correos iguales
                          Se envía un mensaje desde la ruta cuando no se pudo crear el usuario
     [ OK ] PRODUCTO
-    [  ] AGG PROD AL CARRITO - Dashboard
-    [  ] CARRITO (al enviar)
-    [  ] Cuando se envía el reestablecimiento de contraseña
-    [  ] Cuando se ingresa un correo o una contraseña incorrecta en el login
+    [ X ] AGG PROD AL CARRITO - Dashboard
+    [  ] CARRITO (al enviar) -  Al realizar compra envia algo
+    [  ] Cuando se envía el reestablecimiento de contraseña -> Mensaje con Swal **
+    [  ] Cuando se ingresa un correo o una contraseña incorrecta en el login -> Mensaje con Swal **
+
+
+[ ] ESTILO SI NO TIENE PRODUCTOS EN CARRITO
+[ ] JS para cantidad -> en tabla y en el carrito (header)
+
 
 - creación y vista de carrito
 - poner en uso botón de Agregar al carrito

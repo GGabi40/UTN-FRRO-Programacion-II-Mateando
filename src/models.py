@@ -36,6 +36,8 @@ class Producto_Carrito(db.Model):
     id_producto = db.Column(db.Integer, db.ForeignKey('producto.id_Producto'))
     cantidad = db.Column(db.Integer, nullable=False)
     precio_unidad = db.Column(db.Float, nullable=False)
+    
+    producto = db.relationship('Producto', backref='productos_carrito')
 
 
 

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from .models import Usuario
+from flask_login import login_required, current_user, LoginManager
+from .models import Usuario, Carrito
 from . import db
 
 
@@ -19,12 +20,17 @@ def iniciarSesion():
         if usuario and usuario.check_password(password):
             login_user(usuario)  # Usa este método para loguear al usuario
             flash("Inicio de sesión exitoso", "success")
-            # nuevoCarrito: Carrito = Carrito (
-                # id_usuario = usuario.id_usuario
-            # )
             
-            # db.session.add(nuevoCarrito)
-            # db.session.commit()
+            carrito = Carrito.query.filter_by(id_usuario=current_user.id_usuario).first()
+            
+            if not carrito:
+                nuevoCarrito: Carrito = Carrito (
+                    id_usuario = usuario.id_usuario,
+                    total = 0
+                )
+            
+                db.session.add(nuevoCarrito)
+                db.session.commit()
                 
             return redirect(url_for('dashboard' if usuario.es_admin else 'index'))
         else:

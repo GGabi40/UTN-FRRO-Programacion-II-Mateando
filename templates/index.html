@@ -28,7 +28,7 @@
         <span class="precio">{{ producto.precio }}</span>
 
         <div class="acciones">
-          <form action="/agregaCarrito" class="acciones" method="POST">
+          <form action="/agregaCarrito/{{producto.id_Producto}}" class="acciones" method="POST">
             <button class="btn agregar-carrito">Agregar al carrito</button>
           </form>
           <button class="btn comprar">Comprar</button>

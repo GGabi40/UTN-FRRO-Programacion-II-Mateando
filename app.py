@@ -232,9 +232,39 @@ def obtener_productos():
 
 
 """ Productos al carrito """
-@app.route('/agregaCarrito', methods=["POST"])
-#def agrega_carrito():
+@app.route('/agregaCarrito/<int:id_producto>', methods=["POST"])
+@login_required
+def agrega_carrito(id_producto: int):
+    try:
+        usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
+        carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
+        producto = Producto.query.filter_by(id_Producto=id_producto).first()
+
+        nuevo_producto: Producto_Carrito = Producto_Carrito (
+            id_carrito = carrito.id_carrito,
+            id_producto = id_producto,
+            cantidad = 1,
+            precio_unidad = producto.precio
+        )
+        
+        db.session.add(nuevo_producto)
+        db.session.commit()
+        
+        return redirect(request.referrer)
+    except:
+        print('Error!')
+
+
+# Elimina de carrito
+@app.route('/eliminarProductoCarrito/<int:id_Producto_Carrito>', methods=["POST"])
+def eliminarProductoCarrito(id_Producto_Carrito: int):
+    producto_carrito: Producto_Carrito = Producto_Carrito.query.get(id_Producto_Carrito)
+    if producto_carrito:
+        db.session.delete(producto_carrito)
+        db.session.commit()
     
+    return redirect(request.referrer)
+
 
 
 #RUTAS DE PRODUCTOS
@@ -436,8 +466,11 @@ def quienesSomos():
 
 
 @app.route('/carrito')
+@login_required
 def carrito():
-    return render_template('/carrito.html')
+    carrito = Carrito.query.filter_by(id_usuario=current_user.id_usuario).first()
+    productos: List[Tuple[Any]] = Producto_Carrito.query.filter_by(id_carrito=carrito.id_carrito).all()
+    return render_template('/carrito.html', productos=productos)
 
 
 
