@@ -10,11 +10,13 @@
 </head>
 <body>
     <header>
-        <img id="logo"
-        src="{{ url_for('static', filename='assets/img/LOGO-header.webp') }}"
-        alt="Logo de Mateando"
-        loading="lazy"
-        />
+        <a href="{{ url_for('index') }}">
+            <img id="logo"
+            src="{{ url_for('static', filename='assets/img/LOGO-header.webp') }}"
+            alt="Logo de Mateando"
+            loading="lazy"
+            />
+        </a>
       <h1>Mi Perfil</h1>
       <div class="botones">
           <button id="dark-mode-toggle">Cambiar Modo</button>
