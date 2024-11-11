@@ -87,8 +87,9 @@ def init_db():
 
 # Solo entra si es_Admin = True
 @app.route('/dashboard')
-@login_required  # Asegura que solo los usuarios autenticados puedan acceder
+@login_required 
 def dashboard():
+    count = Venta.query.count()
     # Verifica si el usuario es administrador
     if not current_user.es_admin:
         print("No tienes permiso para acceder a esta página.")
@@ -96,7 +97,8 @@ def dashboard():
 
     productos: List[Tuple[Any]] = Producto.query.all()
     # Solo llega a esta línea si cumple con el atributo es_Admin
-    return render_template("auth/dashboard.html", productos=productos)
+    return render_template("auth/dashboard.html", productos=productos, count= count)
+
 # ----
 
 @app.route('/miPerfil')
@@ -272,6 +274,7 @@ def eliminarProductoCarrito(id_Producto_Carrito: int):
 def venta():
     usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
     carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
+    # producto_carrito = Producto_Carrito.query.all()
     
     nueva_Venta: Venta = Venta (
         id_carrito = carrito.id_carrito,
@@ -280,6 +283,7 @@ def venta():
 
     db.session.add(nueva_Venta)
     db.session.delete(carrito)
+    # db.session.delete(producto_carrito)
     db.session.commit()
     
     return redirect(url_for('index'))

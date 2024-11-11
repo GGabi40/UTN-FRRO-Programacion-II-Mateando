@@ -32,8 +32,8 @@ class Producto_Carrito(db.Model):
     __tablename__ = 'producto_carrito'
     
     id_Producto_Carrito = db.Column(db.Integer, primary_key=True)
-    id_carrito = db.Column(db.Integer, db.ForeignKey('carrito.id_carrito'))
-    id_producto = db.Column(db.Integer, db.ForeignKey('producto.id_Producto'))
+    id_carrito = db.Column(db.Integer, db.ForeignKey('carrito.id_carrito', ondelete="CASCADE"), nullable=False)
+    id_producto = db.Column(db.Integer, db.ForeignKey('producto.id_Producto', ondelete="CASCADE"), nullable=False)
     cantidad = db.Column(db.Integer, nullable=False)
     precio_unidad = db.Column(db.Float, nullable=False)
     
@@ -45,9 +45,11 @@ class Carrito(db.Model):
     __tablename__ = 'carrito'
     
     id_carrito = db.Column(db.Integer, primary_key=True)
-    id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id_usuario'))
+    id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id_usuario', ondelete="CASCADE"), nullable=False)
     fecha_creacion = db.Column(db.Date, default=datetime.datetime.now())
     total = db.Column(db.Float, nullable=False)
+    
+    productos_carrito = db.relationship('Producto_Carrito', backref='carrito', cascade="all, delete", passive_deletes=True)
 
 
 class Venta(db.Model):
@@ -69,6 +71,8 @@ class Usuario(db.Model, UserMixin):
     direccion = db.Column(db.String(150), nullable=False)
     es_admin = db.Column(db.Boolean, nullable=False, default=False)
     password_hash = db.Column(db.String(250), nullable=False)
+    
+    carritos = db.relationship('Carrito', backref='usuario', cascade="all, delete", passive_deletes=True)
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

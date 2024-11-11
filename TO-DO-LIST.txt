@@ -4,8 +4,8 @@ TO DO LIST
     [ OK ] REGISTRO ---> Queda: mostrar mensaje de error cuando se ingresan dos correos iguales
                          Se envía un mensaje desde la ruta cuando no se pudo crear el usuario
     [ OK ] PRODUCTO
-    [ X ] AGG PROD AL CARRITO - Dashboard
-    [  ] CARRITO (al enviar) -  Al realizar compra envia algo
+    [ OK ] AGG PROD AL CARRITO - Dashboard
+    [ OK ] CARRITO (al enviar) -  Al realizar compra envia algo
     [ OK ] Cuando se envía el reestablecimiento de contraseña -> Mensaje con Swal **
     [ OK ] Cuando se ingresa un correo o una contraseña incorrecta en el login -> Mensaje con Swal **
 

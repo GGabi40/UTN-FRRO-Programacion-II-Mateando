@@ -60,7 +60,7 @@
                 <h3>Total</h3>
                 <span class="precio-total">80.000</span>
             </div>
-            <form action="/venta" method="post" class="btn">
+            <form action="/venta" method="post" class="btn" id="enviaVenta">
                 <div class="btn">
                     <button id="btn-comprar">
                         <div class="button">
@@ -82,4 +82,27 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const enviaVenta = document.querySelector('#enviaVenta');
+    
+            enviaVenta.addEventListener('submit', mensajeEnvio);
+        });
+
+        const mensajeEnvio = (e) => {
+            e.preventDefault();
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Listo!',
+                text: 'El producto te llegará en los siguientes 15 días.',
+                confirmButtonText: 'Ok'
+              }).then(() => {
+                document.querySelector('#enviaVenta').submit();
+              });
+        }
+    </script>
 {% endblock %}
