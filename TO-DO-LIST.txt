@@ -11,7 +11,8 @@ TO DO LIST
 
 
 
-[ ] JS para cantidad -> en tabla y en el carrito (header)
+[ ] JS para cantidad -> header
+- $$ ventas en dashboard
 
 
 - creación y vista de carrito
