@@ -1,5 +1,10 @@
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+
 class Config():
-    SECRET_KEY='1234'
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///mateando.db')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'default_secret_key')
     
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///mateando.db'
     SQLALCHEMY_TRACK_MODIFITIATIONS = False
