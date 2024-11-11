@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const categorias = Array.from(checkboxes)
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.dataset.filter);
-        
+
         fetch('/filtrar', {
             method: 'POST',
             headers: {
@@ -20,10 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            const producto = data;
+            //Saqué la línea de abajo porq directamente saco los productos de "data"
+            // const producto = data;
             productosContainer.innerHTML = '';
 
             if(data.productos.length > 0) {
+                // Faltaba agregar un for que recorra todos los elementos que trae data
+                data.productos.forEach(producto => {
                 const productoHTML = `
                 <div class="producto">
                     <div class="imagen-producto">
@@ -40,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`;
 
                 productosContainer.insertAdjacentHTML('beforeend', productoHTML);
+            });
             } else {
+                // Url de la imagen modificada. No usar JINJA, sino HTML normal
                 const productoHTML = `
                 <div class="error">
                     <div class="mensaje-error">
@@ -48,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>No se encontraron resultados.</p>
                     </div>
                     <div class="mate">
-                        <img src="{{ url_for('static', filename='assets/img/error/404.png') }}" alt="Foto Sin Resultados">
+                        <img src="./static/assets/img/error/404.png" alt="Foto Sin Resultados">
                     </div>
                 </div>`;
 
