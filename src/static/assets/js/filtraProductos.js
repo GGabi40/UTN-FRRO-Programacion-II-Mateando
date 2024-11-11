@@ -47,11 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="imagen-producto">
                         <img src="${producto.image_url}" alt="Foto Producto" />
                     </div>
-                    <div class="info-producto">
+                    <div class="info-productos">
                         <span class="nombre-producto"><strong class="unid-producto">${producto.nombre}</strong></span>
                         <span class="precio">${producto.precio}</span>
                         <div class="acciones">
+                        <form action="/agregaCarrito/${producto.id_Producto}" class="acciones" method="POST">
                             <button class="btn agregar-carrito">Agregar al carrito</button>
+                        </form>
                             <button class="btn comprar">Comprar</button>
                         </div>
                     </div>
@@ -66,9 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="mensaje-error">
                         <h2>¡Lo sentimos!</h2>
                         <p>No se encontraron resultados.</p>
-                    </div>
-                    <div class="mate">
-                        <img src="/src/static/assets/img/error/404.png" alt="Foto Sin Resultados">
                     </div>
                 </div>`;
 
