@@ -16,6 +16,7 @@ app.register_blueprint(main)
 
 # Inicializa Flask-Login
 login_manager = LoginManager()
+login_manager.login_message = None
 login_manager.init_app(app)
 
 # Redireccionar a la página de login si no está autenticado

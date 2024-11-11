@@ -22,6 +22,16 @@
     <input type="submit" value="Iniciar sesión" aria-label="Iniciar sesión" />
   </form>
 
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flash-msg">
+      {% for message in messages %}
+        <span>{{ message }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
   <div class="links">
     <a href="{{ url_for('recuperarContrasenia') }}">¿Olvidaste la contraseña?</a>
     <p class="no-cuenta">¿Todavía no tienes una cuenta?</p>

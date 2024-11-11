@@ -408,6 +408,7 @@ form input[type="submit"]:hover {
 }
 
 .links {
+  margin-top: 30px;
   text-align: center;
   font-size: 1.6rem;
 }
@@ -435,6 +436,15 @@ form input[type="submit"]:hover {
   padding: 20px;
   font-size: 1.8rem;
   border-radius: var(--border-radius);
+  margin-bottom: 10px;
+}
+
+.flash-msg span {
+  background: red;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 1rem;
   margin-bottom: 10px;
 }
 
