@@ -6,8 +6,8 @@ TO DO LIST
     [ OK ] PRODUCTO
     [ X ] AGG PROD AL CARRITO - Dashboard
     [  ] CARRITO (al enviar) -  Al realizar compra envia algo
-    [  ] Cuando se envía el reestablecimiento de contraseña -> Mensaje con Swal **
-    [  ] Cuando se ingresa un correo o una contraseña incorrecta en el login -> Mensaje con Swal **
+    [ OK ] Cuando se envía el reestablecimiento de contraseña -> Mensaje con Swal **
+    [ OK ] Cuando se ingresa un correo o una contraseña incorrecta en el login -> Mensaje con Swal **
 
 
 

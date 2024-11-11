@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-  <form method="post" action="/enviarContraseniaTemporal" aria-labelledby="form-titulo">
+  <form method="post" action="/enviarContraseniaTemporal" aria-labelledby="form-titulo" id="formulario-recuperacion">
     <div class="inicio-formulario" id="form-titulo">
       <img src="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" alt="LOGO" loading="lazy" />
       <p>¿Olvidaste tu contraseña?</p>
@@ -15,21 +15,9 @@
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" required />
     </div>
-    <!-- <div class="label">
-      <label for="pass">Ingresar nueva contraseña:</label>
-      <input type="password" name="pass" id="pass" required />
-    </div>
-    <div class="label">
-      <label for="pass">Repetir nueva contraseña:</label>
-      <input type="password" name="pass" id="pass" required />
-    </div> -->
-    <input
-      type="submit"
-      value="Recuperar Contaseña"
-      aria-label="Recuperar Contaseña"
-    />
 
-    {# <span class="respuesta-sesion">Contraseña Restablecida</span> #}
+    <input type="submit" value="Recuperar Contaseña" aria-label="Recuperar Contaseña" />
+
   </form>
 
   <div class="links">
@@ -38,5 +26,30 @@
     <a href="{{ url_for('registrarse') }}">Registrate</a>
   </div>
 </div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const formulario = document.querySelector('#formulario-recuperacion');
+
+    formulario.addEventListener('submit', enviaFormulario)
+  });
+
+  const enviaFormulario = (e) => {
+    e.preventDefault();
+    
+    Swal.fire({
+      icon: 'success',
+      title: '¡Listo!',
+      text: 'Se envió el mail de recuperación de contraseña.',
+      confirmButtonText: 'Ok'
+    }).then(() => {
+      document.querySelector('#formulario-recuperacion').submit();
+    });
+  };
+</script>
 
 {% endblock %}
