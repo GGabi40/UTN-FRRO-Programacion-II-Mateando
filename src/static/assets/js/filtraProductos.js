@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>No se encontraron resultados.</p>
                     </div>
                     <div class="mate">
-                        <img src="./static/assets/img/error/404.png" alt="Foto Sin Resultados">
+                        <img src="/src/static/assets/img/error/404.png" alt="Foto Sin Resultados">
                     </div>
                 </div>`;
 

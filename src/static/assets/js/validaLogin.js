@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // si está todo bien, enviamos al servidor para validar las credenciales
         try {
+
             const response = await fetch('/validarCredenciales', {
                 method: 'POST',
                 headers: {
@@ -38,8 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ email, password })
             });
-
+            debugger;
             const data = await response.json();
+
+            
+            console.log(response);
+            console.log(data);
+            
+            
 
             if (response.ok && data.success) {
                 // Si está todo bien, se permite el envío del formulario
@@ -53,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     text: data.message || 'Hubo un error al validar las credenciales.'
                 });
             }
+            debugger;
         } catch (error) {
             // si algo sale mal, maneja el error:
             console.error('Error al validar las credenciales:', error);

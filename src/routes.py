@@ -19,9 +19,9 @@ def validar_credenciales():
         if usuario and usuario.check_password(password):
             return jsonify({'success': True})
         else:
-            return jsonify({'success': False, 'message': 'Email o contraseña incorrectos'}), 400
+            return jsonify({'success': False, 'message': 'Email o contraseña incorrectos'})
     except Exception as e:
-        return jsonify({'success': False, 'message': str(e)}), 500
+        return jsonify({'success': False, 'message': str(e)})
 
 
 
@@ -52,7 +52,7 @@ def iniciarSesion():
         else:
             flash("Email o contraseña incorrectos", "danger")
     
-    return render_template('index.html')
+    return redirect(url_for("index"))
 
 
 
