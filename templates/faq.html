@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-item">
+        <h3>¿Qué productos ofrecen?</h3>
+        <p>En Mateando, encontrarás todo lo necesario para tu experiencia de mate: desde yerba de calidad, mates,
+            bombillas, y accesorios exclusivos.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>¿Hacen envíos a todo el país?</h3>
+        <p>Sí, realizamos envíos a toda Argentina. Nos esforzamos en garantizar que tu pedido llegue en el menor tiempo
+            posible y en perfectas condiciones.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>¿Qué métodos de pago aceptan?</h3>
+        <p>Aceptamos tarjetas de crédito, débito, y transferencia bancaria.</p>
+    </div>
+
+    <div class="contenido">
+        <div class="img" style="display: flex; justify-content:center;">
+            <img src="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" alt="Logo Mateando" style="margin-top: 20px">
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

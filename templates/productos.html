@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="productos-container">
+    <aside class="sidebar">
+        <h2>Categorías</h2>
+        <form id="filter-form">
+          <div>
+            <input type="checkbox" id="todos" class="filter-checkbox" data-filter="todos" checked>
+            <label for="todos" class="label-filter">Todos</label>
+          </div>
+          <div>
+            <!-- Cambié el data-filter por el id_categoria correspondiente para que funcione el filtrado -->
+            <input type="checkbox" id="mates" class="filter-checkbox" data-filter="2">
+            <label for="mates" class="label-filter">Mates</label>
+          </div>
+          <div>
+            <input type="checkbox" id="termos" class="filter-checkbox" data-filter="4">
+            <label for="termos" class="label-filter">Termos</label>
+          </div>
+          <div>
+            <input type="checkbox" id="bombillas" class="filter-checkbox" data-filter="3">
+            <label for="bombillas" class="label-filter">Bombillas</label>
+          </div>
+          <div>
+            <input type="checkbox" id="sets" class="filter-checkbox" data-filter="1">
+            <label for="sets" class="label-filter">Sets Materos</label>
+          </div>
+          <div>
+            <input type="checkbox" id="yerba" class="filter-checkbox" data-filter="5">
+            <label for="yerba" class="label-filter">Yerba</label>
+          </div>
+        </form>
+      </aside>
+      
+    {% if productos %}
+      <div class="producto-categoria">
+          {% for producto in productos %}
+          <div class="producto">
+            <div class="imagen-producto">
+              <img src="{{ producto.image_url }}" alt="Foto Producto" />
+            </div>
+            <div class="info-productos">
+              <span class="nombre-producto"><strong class="unid-producto">{{ producto.nombre.title() }}</strong></span>
+              <span class="precio">{{ producto.precio }}</span>
+              <div class="acciones">
+                <form action="/agregaCarrito/{{producto.id_Producto}}" class="acciones" method="POST">
+                  <button class="btn agregar-carrito">Agregar al carrito</button>
+                </form>
+                <button class="btn comprar">Comprar</button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+    {% else %}
+      <div class="error">
+        <div class="mensaje-error">
+          <h2>¡Lo sentimos!</h2>
+          <p>No se encontraron resultados.</p>
+        </div>
+        <div class="mate">
+          <img src="{{ url_for('static', filename='assets/img/error/404.png') }}" alt="Foto Sin Resultados">
+        </div>
+      </div>
+    {% endif %}
+</div>
+
+  
+{% endblock %}
+
+{% block script %}
+  <script src="{{ url_for('static', filename='assets/js/filtraProductos.js') }}"></script>
+{% endblock %}

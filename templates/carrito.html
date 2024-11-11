@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/carrito.css') }}" media="all" />
+{% endblock %}
+
+{% block content %}
+<div class="container-container-carrito">
+    <h1>Carrito de Compras</h1>
+    <div class="container-carrito">
+        <div class="compras">
+            {% if productos %}
+            <table class="carrito-tabla">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        {% for producto in productos %}
+                        <tr>
+                            <td>
+                                <img src="{{ producto.producto.image_url }}" alt="Foto de {{ producto.producto.nombre }}" class="producto-imagen">
+                            </td>
+                            <td>{{ producto.producto.nombre }}</td>
+                            <td>
+                                <button class="cantidad-btn" data-id="{{ producto.id_Producto_Carrito }}" data-action="decrement">-</button>
+                                <span class="cantidad" data-id="{{ producto.id_Producto_Carrito }}">{{ producto.cantidad }}</span>
+                                <button class="cantidad-btn" data-id="{{ producto.id_Producto_Carrito }}" data-action="increment">+</button>
+                            </td>
+                            <td>{{ producto.producto.precio }}</td>
+                            <td>
+                                <form action="/eliminarProductoCarrito/{{producto.id_Producto_Carrito}}" method="post">
+                                    <button class="eliminar-btn">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    
+                    
+                </tbody>
+            </table>
+            {% else %}
+            <div class="container-carrito-vacio">
+                <h3>¡Tu carrito está vacío!</h3>
+                <a href="./productos">Fijate nuestra colección 🧉</a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="resumen">
+            <div class="resumen-text">
+                <h2>Resumen de la Compra</h2>
+            </div>
+            <div class="titulo-total">
+                <h3>Total</h3>
+                <span class="precio-total">{{ total }}</span>
+            </div>
+            <form action="/venta" method="post" class="btn" id="enviaVenta">
+                <div class="btn">
+                    <button id="btn-comprar">
+                        <div class="button">
+                            <div class="button-wrapper">
+                                <div class="text">Comprar</div>
+                                <span class="icon">
+                                    <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{url_for('static', filename='assets/js/actualizaCantidades.js')}}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const enviaVenta = document.querySelector('#enviaVenta');
+    
+            enviaVenta.addEventListener('submit', mensajeEnvio);
+        });
+
+        const mensajeEnvio = (e) => {
+            e.preventDefault();
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Listo!',
+                text: 'El producto te llegará en los siguientes 15 días.',
+                confirmButtonText: 'Ok'
+              }).then(() => {
+                document.querySelector('#enviaVenta').submit();
+              });
+        }
+    </script>
+{% endblock %}

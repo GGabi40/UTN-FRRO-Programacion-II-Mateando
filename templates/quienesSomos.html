@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="quienes-somos">
+    <h2>Quiénes Somos</h2>
+    <div class="contenido">
+        <p>
+            Bienvenidos a <strong>Mateando</strong>, tu tienda virtual dedicada al mate.
+            Somos el <strong>Grupo 2</strong>, y creamos este proyecto para nuestro Trabajo Práctico de Programación II.
+        </p>
+        <br>
+        <p>
+            ¡Esperamos que disfrutes esta experiencia!
+        </p>
+
+        <div class="img">
+            <img src="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" alt="Logo Mateando">
+        </div>
+    </div>
+</section>
+{% endblock %}

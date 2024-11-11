@@ -1,0 +1,55 @@
+{% extends 'baseForm.html' %}
+
+{% block content %}
+<div class="container">
+  <form method="post" action="/enviarContraseniaTemporal" aria-labelledby="form-titulo" id="formulario-recuperacion">
+    <div class="inicio-formulario" id="form-titulo">
+      <img src="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" alt="LOGO" loading="lazy" />
+      <p>¿Olvidaste tu contraseña?</p>
+      <p style="font-size: 1.6rem">
+        Ingresa los siguientes datos para continuar:
+      </p>
+    </div>
+
+    <div class="label">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required />
+    </div>
+
+    <input type="submit" value="Recuperar Contaseña" aria-label="Recuperar Contaseña" />
+
+  </form>
+
+  <div class="links">
+    <a href="{{ url_for('login') }}">Iniciar sesión</a>
+    <p class="no-cuenta">¿Todavía no tienes una cuenta?</p>
+    <a href="{{ url_for('registrarse') }}">Registrate</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const formulario = document.querySelector('#formulario-recuperacion');
+
+    formulario.addEventListener('submit', enviaFormulario)
+  });
+
+  const enviaFormulario = (e) => {
+    e.preventDefault();
+    
+    Swal.fire({
+      icon: 'success',
+      title: '¡Listo!',
+      text: 'Se envió el mail de recuperación de contraseña.',
+      confirmButtonText: 'Ok'
+    }).then(() => {
+      document.querySelector('#formulario-recuperacion').submit();
+    });
+  };
+</script>
+
+{% endblock %}

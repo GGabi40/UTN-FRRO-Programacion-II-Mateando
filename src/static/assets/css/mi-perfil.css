@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --fuente-titulo: "Josefin Sans", sans-serif;
+  --font-weight-titulo: 400;
+  --fuente-principal: "Inter", sans-serif;
+  --color-primario: #283618;
+  --color-opciones: #606c38;
+  --background: #fefae0;
+  --header-background: #ccd5ae;
+  --button-background: #d4a373;
+  --button-hover: #bc6c25;
+  --back-top: #dda15e;
+  --border-radius: 8px;
+  --invert: invert(0);
+}
+
+.dark-mode {
+  --color-primario: #fefae0;
+  --color-opciones: #d4a373;
+  --background: #283618;
+  --header-background: #606c38;
+  --button-background: #dda15e;
+  --button-hover: #bc6c25;
+  --invert: invert(1);
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--background);
+  color: var(--color-primario);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  background-color: var(--header-background);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1,
+h2 {
+  font-family: var(--fuente-titulo);
+  font-weight: var(--font-weight-titulo);
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+#logo {
+  height: 150px;
+  width: auto;
+  filter: var(--invert);
+}
+
+#toIndex {
+  text-decoration: none;
+  padding-left: 6px;
+  color: var(--color-primario);
+
+  transition: text-decoration 0.6s ease-in-out;
+}
+
+#toIndex:hover {
+  text-decoration: underline;
+}
+
+
+.profile-section {
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+.label {
+  display: grid;
+  gap: 0.5rem;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-opciones);
+  border-radius: var(--border-radius);
+  font-family: var(--fuente-principal);
+  background-color: var(--background);
+  color: var(--color-primario);
+}
+
+input[type="submit"],
+button {
+  background-color: var(--button-background);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-family: var(--fuente-principal);
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: var(--button-hover);
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.delete-account {
+  background-color: #ff4136;
+}
+
+.delete-account:hover {
+  background-color: #dc352b;
+}
+
+#dark-mode-toggle {
+  background-color: var(--button-background);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-family: var(--fuente-principal);
+  transition: background-color 0.3s;
+}
+
+#dark-mode-toggle:hover {
+  background-color: var(--button-hover);
+}

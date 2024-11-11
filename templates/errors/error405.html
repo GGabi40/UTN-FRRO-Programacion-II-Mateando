@@ -1,0 +1,18 @@
+{% include 'base.html' %}
+
+{% block content %}
+    <div class="error">
+    <div class="mensaje-error">
+        <h2>¡Lo sentimos!</h2>
+        <h3>La solicitud no está permitida en este recurso.</h3>
+        <a href="{{ url_for('index') }}">Regresar al inicio</a>
+    </div>
+
+    <div class="mate">
+        <img
+        src="{{ url_for('static', filename='assets/img/error/404.png') }}"
+        alt="Homero tomando mates"
+        />
+    </div>
+    </div>
+{% endblock %}

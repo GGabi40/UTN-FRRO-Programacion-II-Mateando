@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="error">
+        <div class="mensaje-error">
+            <h2>¡Lo sentimos!</h2>
+            <h3>Página no encontrada.</h3>
+            <p>{{ error }}</p>
+        </div>
+        
+        <div class="mate">
+            <img src="{{ url_for('static', filename='assets/img/error/404.png') }}" alt="Homero tomando mates">
+        </div>
+    </div>
+{% endblock %}
