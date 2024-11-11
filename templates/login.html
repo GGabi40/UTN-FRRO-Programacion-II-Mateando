@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="container">
-  <form action="/iniciarSesion" aria-labelledby="form-titulo" method="POST">
+  <form action="/iniciarSesion" aria-labelledby="form-titulo" method="POST" id="login-form">
     <div class="inicio-formulario" id="form-titulo">
       <img src="{{ url_for('static', filename='assets/img/LOGO-footer.webp') }}" alt="LOGO" loading="lazy" />
       <p>Nos alegra verte otra vez</p>
@@ -29,4 +29,9 @@
   </div>
 </div>
 
+
+{% endblock %}
+
+{% block script %}
+  <script src="{{ url_for('static', filename='assets/js/validaLogin.js')}}"></script>
 {% endblock %}

@@ -10,7 +10,7 @@ TO DO LIST
     [  ] Cuando se ingresa un correo o una contraseña incorrecta en el login -> Mensaje con Swal **
 
 
-[ ] ESTILO SI NO TIENE PRODUCTOS EN CARRITO
+
 [ ] JS para cantidad -> en tabla y en el carrito (header)
 
 
@@ -56,6 +56,7 @@ DONE:
 - Cambiar textos a Grupo 2
 - armar formulario para restaurar contraseña con funcionalidad
 - agregar botón para salir de miPerfil sin necesidad de modificar datos
+- ESTILO SI NO TIENE PRODUCTOS EN CARRITO
 
 
 

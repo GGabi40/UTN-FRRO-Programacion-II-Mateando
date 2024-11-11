@@ -1,13 +1,29 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from flask_login import login_required, current_user, LoginManager
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
+from flask_login import current_user
 from .models import Usuario, Carrito
 from . import db
 
 
 main = Blueprint('main', __name__)
 
-
 from flask_login import login_user
+
+@main.route('/validarCredenciales', methods=['POST'])
+def validar_credenciales():
+    try:
+        email = request.json.get('email')
+        password = request.json.get('password')
+
+        usuario = Usuario.query.filter_by(email=email).first()
+
+        if usuario and usuario.check_password(password):
+            return jsonify({'success': True})
+        else:
+            return jsonify({'success': False, 'message': 'Email o contraseña incorrectos'}), 400
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
 
 @main.route('/iniciarSesion', methods=['GET', 'POST'])
 def iniciarSesion():
