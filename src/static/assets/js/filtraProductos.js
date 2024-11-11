@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('.filter-checkbox');
+    const checkboxTodos = document.getElementById('todos');
     const productosContainer = document.querySelector('.producto-categoria');
 
     checkboxes.forEach(checkbox => {
@@ -7,6 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function actualizaProductos() {
+        // verifica si se selecciona algo distinto a "todos", si sí, desmarca "todos"
+        if (this !== checkboxTodos && this.checked) {
+            checkboxTodos.checked = false;
+        }
+        
+        // si todos está seleccionado, otro checkbox se desmarca
+        if (this === checkboxTodos && checkboxTodos.checked) {
+            checkboxes.forEach(checkbox => {
+                if (checkbox !== checkboxTodos) {
+                    checkbox.checked = false;
+                }
+            });
+        }
+
         const categorias = Array.from(checkboxes)
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.dataset.filter);

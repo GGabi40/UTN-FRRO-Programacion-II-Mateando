@@ -35,21 +35,21 @@
       
     {% if productos %}
       <div class="producto-categoria">
-        {% for producto in productos %}
-        <div class="producto">
-          <div class="imagen-producto">
-            <img src="{{ producto.image_url }}" alt="Foto Producto" />
-          </div>
-          <div class="info-productos">
-            <span class="nombre-producto"><strong class="unid-producto">{{ producto.nombre.title() }}</strong></span>
-            <span class="precio">{{ producto.precio }}</span>
-            <div class="acciones">
-              <button class="btn agregar-carrito">Agregar al carrito</button>
-              <button class="btn comprar">Comprar</button>
+          {% for producto in productos %}
+          <div class="producto">
+            <div class="imagen-producto">
+              <img src="{{ producto.image_url }}" alt="Foto Producto" />
+            </div>
+            <div class="info-productos">
+              <span class="nombre-producto"><strong class="unid-producto">{{ producto.nombre.title() }}</strong></span>
+              <span class="precio">{{ producto.precio }}</span>
+              <div class="acciones">
+                <button class="btn agregar-carrito">Agregar al carrito</button>
+                <button class="btn comprar">Comprar</button>
+              </div>
             </div>
           </div>
-        </div>
-        {% endfor %}
+          {% endfor %}
       </div>
     {% else %}
       <div class="error">

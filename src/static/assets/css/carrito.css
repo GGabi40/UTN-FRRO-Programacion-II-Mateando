@@ -50,6 +50,14 @@ h1 {
   font-size: 1.6rem;
 }
 
+.container-carrito-vacio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .compras, .resumen {
   background: #fff;
 }
