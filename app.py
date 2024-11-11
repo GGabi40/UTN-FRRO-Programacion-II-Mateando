@@ -267,6 +267,22 @@ def eliminarProductoCarrito(id_Producto_Carrito: int):
     return redirect(request.referrer)
 
 
+""" Registra una Venta """
+@app.route('/venta', methods=["POST"])
+def venta():
+    usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
+    carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
+    
+    nueva_Venta: Venta = Venta (
+        id_carrito = carrito.id_carrito,
+        nro_factura = random.randrange(100, 1000)
+    )
+
+    db.session.add(nueva_Venta)
+    db.session.delete(carrito)
+    db.session.commit()
+    
+    return redirect(url_for('index'))
 
 #RUTAS DE PRODUCTOS
 
