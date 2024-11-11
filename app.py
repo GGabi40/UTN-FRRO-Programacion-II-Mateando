@@ -8,7 +8,7 @@ import random
 import string
 
 from src.models import *
-from src.routes import main
+from src.routes import main, creaCarrito
 
 
 app = crear_app()
@@ -274,7 +274,7 @@ def eliminarProductoCarrito(id_Producto_Carrito: int):
 def venta():
     usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
     carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
-    # producto_carrito = Producto_Carrito.query.all()
+    producto_carrito = Producto_Carrito.query.filter_by(id_carrito=carrito.id_carrito).all()
     
     nueva_Venta: Venta = Venta (
         id_carrito = carrito.id_carrito,
@@ -282,8 +282,9 @@ def venta():
     )
 
     db.session.add(nueva_Venta)
-    db.session.delete(carrito)
-    # db.session.delete(producto_carrito)
+    for p in producto_carrito:
+        db.session.delete(p)
+        
     db.session.commit()
     
     return redirect(url_for('index'))

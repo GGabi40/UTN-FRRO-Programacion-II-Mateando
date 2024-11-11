@@ -8,6 +8,18 @@ main = Blueprint('main', __name__)
 
 from flask_login import login_user
 
+def creaCarrito(usuario):
+    carrito = Carrito.query.filter_by(id_usuario=current_user.id_usuario).first()
+            
+    if not carrito:
+        nuevoCarrito: Carrito = Carrito (
+            id_usuario = usuario.id_usuario,
+            total = 0
+        )
+
+        db.session.add(nuevoCarrito)
+        db.session.commit()
+
 
 @main.route('/iniciarSesion', methods=['GET', 'POST'])
 def iniciarSesion():
@@ -20,16 +32,8 @@ def iniciarSesion():
         if usuario and usuario.check_password(password):
             login_user(usuario)  # Usa este método para loguear al usuario
             
-            carrito = Carrito.query.filter_by(id_usuario=current_user.id_usuario).first()
-            
-            if not carrito:
-                nuevoCarrito: Carrito = Carrito (
-                    id_usuario = usuario.id_usuario,
-                    total = 0
-                )
-            
-                db.session.add(nuevoCarrito)
-                db.session.commit()
+            # crear carrito
+            creaCarrito(usuario)
                 
             return redirect(url_for('dashboard' if usuario.es_admin else 'index'))
         else:
