@@ -13,8 +13,7 @@ def creaCarrito(usuario):
             
     if not carrito:
         nuevoCarrito: Carrito = Carrito (
-            id_usuario = usuario.id_usuario,
-            total = 0
+            id_usuario = usuario.id_usuario
         )
 
         db.session.add(nuevoCarrito)

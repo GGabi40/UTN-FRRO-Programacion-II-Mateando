@@ -47,7 +47,6 @@ class Carrito(db.Model):
     id_carrito = db.Column(db.Integer, primary_key=True)
     id_usuario = db.Column(db.Integer, db.ForeignKey('usuario.id_usuario', ondelete="CASCADE"), nullable=False)
     fecha_creacion = db.Column(db.Date, default=datetime.datetime.now())
-    total = db.Column(db.Float, nullable=False)
     
     productos_carrito = db.relationship('Producto_Carrito', backref='carrito', cascade="all, delete", passive_deletes=True)
 
@@ -58,6 +57,7 @@ class Venta(db.Model):
     id_venta = db.Column(db.Integer, primary_key=True)
     id_carrito = db.Column(db.Integer, db.ForeignKey('carrito.id_carrito'))
     nro_factura = db.Column(db.Integer, unique=True, nullable=False)
+    total = db.Column(db.Float, nullable=False)
 
 
 class Usuario(db.Model, UserMixin):

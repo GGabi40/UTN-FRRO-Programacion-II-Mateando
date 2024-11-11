@@ -276,10 +276,14 @@ def venta():
     usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
     carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
     producto_carrito = Producto_Carrito.query.filter_by(id_carrito=carrito.id_carrito).all()
-    
+    total = db.session.query(
+        func.sum(Producto_Carrito.precio_unidad * Producto_Carrito.cantidad)
+    ).filter_by(id_carrito=carrito.id_carrito).scalar()
+
     nueva_Venta: Venta = Venta (
         id_carrito = carrito.id_carrito,
-        nro_factura = random.randrange(100, 1000)
+        nro_factura = random.randrange(100, 1000),
+        total = total
     )
 
     db.session.add(nueva_Venta)
