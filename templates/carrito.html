@@ -29,9 +29,9 @@
                             </td>
                             <td>{{ producto.producto.nombre }}</td>
                             <td>
-                                <button class="cantidad-btn">-</button>
-                                <span class="cantidad">0</span> {# JS #}
-                                <button class="cantidad-btn">+</button>
+                                <button class="cantidad-btn" data-id="{{ producto.id_Producto_Carrito }}" data-action="decrement">-</button>
+                                <span class="cantidad" data-id="{{ producto.id_Producto_Carrito }}">{{ producto.cantidad }}</span>
+                                <button class="cantidad-btn" data-id="{{ producto.id_Producto_Carrito }}" data-action="increment">+</button>
                             </td>
                             <td>{{ producto.producto.precio }}</td>
                             <td>
@@ -58,7 +58,7 @@
             </div>
             <div class="titulo-total">
                 <h3>Total</h3>
-                <span class="precio-total">80.000</span>
+                <span class="precio-total">{{ total }}</span>
             </div>
             <form action="/venta" method="post" class="btn" id="enviaVenta">
                 <div class="btn">
@@ -85,6 +85,8 @@
 {% endblock %}
 
 {% block script %}
+    <script src="{{url_for('static', filename='assets/js/actualizaCantidades.js')}}"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const enviaVenta = document.querySelector('#enviaVenta');

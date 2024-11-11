@@ -3,6 +3,7 @@ from typing import List, Tuple, Any
 from flask import render_template, request, Response, redirect, url_for, flash, jsonify
 from flask_login import login_required, current_user, LoginManager
 from flask_mail import Mail, Message
+from sqlalchemy import func
 
 import random
 import string
@@ -492,8 +493,37 @@ def quienesSomos():
 def carrito():
     carrito = Carrito.query.filter_by(id_usuario=current_user.id_usuario).first()
     productos: List[Tuple[Any]] = Producto_Carrito.query.filter_by(id_carrito=carrito.id_carrito).all()
-    return render_template('/carrito.html', productos=productos)
+    
+    total = db.session.query(
+        func.sum(Producto_Carrito.precio_unidad * Producto_Carrito.cantidad)
+    ).filter_by(id_carrito=carrito.id_carrito).scalar()
+    return render_template('/carrito.html', productos=productos, total=total)
 
+
+""" Actualiza cantidades """
+@app.route('/actualizarCantidad', methods=["POST"])
+def actualizarCantidad():
+    data = request.get_json()
+    product_id = data.get("idProducto")
+    action = data.get("action")
+    
+    producto_carrito = Producto_Carrito.query.get(product_id)
+    if not producto_carrito:
+        return jsonify({"success": False}), 404
+
+    if action == "increment":
+        producto_carrito.cantidad += 1
+    elif action == "decrement" and producto_carrito.cantidad > 1:
+        producto_carrito.cantidad -= 1
+    
+    db.session.commit()
+    total = sum(item.cantidad * item.precio_unidad for item in producto_carrito.carrito.productos_carrito)
+    
+    return jsonify({
+        "success": True,
+        "newQuantity": producto_carrito.cantidad,
+        "newTotal": total
+    })
 
 
 @app.route('/login')
