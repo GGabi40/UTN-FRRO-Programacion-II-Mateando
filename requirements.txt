@@ -1,5 +1,4 @@
 Flask
-Flask-MySQLdb
 PyMySQL
 Flask-SQLAlchemy
 flask-migrate
