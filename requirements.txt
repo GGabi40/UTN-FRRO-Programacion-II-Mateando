@@ -1,6 +1,5 @@
 Flask
-Flask-MySQLdb
-PyMySQ
+PyMySQL
 Flask-SQLAlchemy
 flask-migrate
 flask-login

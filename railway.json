@@ -1,0 +1,10 @@
+{
+    "name": "mateando",
+    "services": [
+      {
+        "type": "python",
+        "name": "web"
+      }
+    ]
+  }
+  
