@@ -7,5 +7,3 @@ flask-mail
 pydantic
 pydantic[email]
 python-dotenv
-mysqlclient
-pymysql
