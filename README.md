@@ -28,4 +28,5 @@
 
 <p>Ejecutar:</p>
 <code>pip install -r requirements.txt</code>
+<br>
 <code>python app.py</code>
