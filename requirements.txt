@@ -7,3 +7,4 @@ flask-mail
 pydantic
 pydantic[email]
 python-dotenv
+psycopg2
