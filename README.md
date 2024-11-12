@@ -12,7 +12,7 @@
 <li>Rey, Justina</li>
 </ul>
 
-<p>Clique <a href="https://ggabi40.github.io/UTN-FRRO-Programacion-II-Mateando/">aquí</a> para visitar el proyecto.</p>
+<p>Clique <a href="https://utn-frro-p-ii-mateando.vercel.app/">aquí</a> para visitar el proyecto.</p>
 
 <hr>
 <h2>💻 Tecnologías:</h2>
@@ -26,8 +26,6 @@
 </ul>
 
 <hr>
-
-<a href="https://utn-frro-programacion-ii-mateando.vercel.app/">Visitar Proyecto</a>
 
 <p>Ejecutar:</p>
 <code>pip install -r requirements.txt</code>
