@@ -1,0 +1,10 @@
+{
+    "name": "miapp-flask",
+    "services": [
+      {
+        "type": "python",
+        "name": "web"
+      }
+    ]
+  }
+  
