@@ -310,6 +310,7 @@ def venta():
 
 """ Verifica si hay productos """
 @app.route('/verificaProductos', methods=['POST'])
+@login_required
 def verificaProductos():
     usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
     carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
@@ -501,7 +502,7 @@ def deleteAccount():
 
 @app.route('/')
 def index():
-    productos: List[Tuple[Any]] = Producto.query.all()
+    productos: List[Tuple[Any]] = Producto.query.limit(8).all()
     return render_template("index.html", productos=productos)
 
 
