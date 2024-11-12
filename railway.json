@@ -1,5 +1,5 @@
 {
-    "name": "miapp-flask",
+    "name": "mateando",
     "services": [
       {
         "type": "python",
