@@ -54,7 +54,7 @@ def database():
 
 
 def create_db():
-    # db.drop_all()
+    db.drop_all()
     db.create_all()
 
 
@@ -67,18 +67,17 @@ def init_db():
     create_db()
 
     # user admin app
-    if not Usuario.query.filter_by(email='admin@mateando.com').first():
-        admin = Usuario(
-            nombre='admin',
-            apellido='1',
-            email='admin@mateando.com',
-            es_admin=True,
-            telefono='3415555555',
-            direccion='Cordoba 1234'
-        )
-        admin.set_password("123")
-        db.session.add(admin)
-        db.session.commit()
+    admin = Usuario(
+        nombre='admin',
+        apellido='1',
+        email='admin@mateando.com',
+        es_admin=True,
+        telefono='3415555555',
+        direccion='Cordoba 1234'
+    )
+    admin.set_password("123")
+    db.session.add(admin)
+    db.session.commit()
 
 
 """  """
