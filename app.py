@@ -9,8 +9,7 @@ import random
 import string
 
 from src.models import *
-from src.routes import main, creaCarrito
-
+from src.routes import main
 
 app = crear_app()
 app.register_blueprint(main)
