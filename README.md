@@ -12,7 +12,6 @@
 <li>Rey, Justina</li>
 </ul>
 
-<p>Clique <a href="https://utn-frro-p-ii-mateando.vercel.app/">aquí</a> para visitar el proyecto.</p>
 
 <hr>
 <h2>💻 Tecnologías:</h2>
