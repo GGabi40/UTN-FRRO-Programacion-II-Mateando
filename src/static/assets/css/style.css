@@ -586,6 +586,24 @@ footer .contacto img {
   padding-top: 20px;
 }
 
+.ver-mas {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ver-mas-btn {
+  padding: 10px 20px;
+  background-color: #d4a373;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.ver-mas-btn:hover {
+  background-color: #bc6c25;
+}
+
 .unid-producto {
   font-weight: 600;
 }
@@ -1015,7 +1033,7 @@ footer .contacto img {
 
   #productos, .producto-categoria {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     justify-items: center;
   }
 

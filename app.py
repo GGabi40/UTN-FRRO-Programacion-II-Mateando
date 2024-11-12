@@ -9,8 +9,7 @@ import random
 import string
 
 from src.models import *
-from src.routes import main, creaCarrito
-
+from src.routes import main
 
 app = crear_app()
 app.register_blueprint(main)
@@ -91,14 +90,19 @@ def init_db():
 @login_required 
 def dashboard():
     count = Venta.query.count()
+    suma = db.session.query(func.sum(Venta.total)).scalar()
+    
     # Verifica si el usuario es administrador
     if not current_user.es_admin:
         print("No tienes permiso para acceder a esta página.")
         return redirect(url_for('index'))  # Redirige al Inicio
 
+    if not suma:
+        suma = 0
+    
     productos: List[Tuple[Any]] = Producto.query.all()
     # Solo llega a esta línea si cumple con el atributo es_Admin
-    return render_template("auth/dashboard.html", productos=productos, count= count)
+    return render_template("auth/dashboard.html", productos=productos, count= count, suma=suma)
 
 # ----
 
@@ -303,6 +307,22 @@ def venta():
     
     return redirect(url_for('index'))
 
+
+""" Verifica si hay productos """
+@app.route('/verificaProductos', methods=['POST'])
+@login_required
+def verificaProductos():
+    usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
+    carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
+    
+    cantidad = db.session.query(
+            db.func.sum(Producto_Carrito.cantidad)
+        ).filter_by(id_carrito=carrito.id_carrito).scalar()
+    
+    return jsonify({"cantidad": cantidad})
+
+
+
 #RUTAS DE PRODUCTOS
 
 @app.route('/productos')
@@ -482,7 +502,7 @@ def deleteAccount():
 
 @app.route('/')
 def index():
-    productos: List[Tuple[Any]] = Producto.query.all()
+    productos: List[Tuple[Any]] = Producto.query.limit(8).all()
     return render_template("index.html", productos=productos)
 
 
@@ -510,6 +530,10 @@ def carrito():
     total = db.session.query(
         func.sum(Producto_Carrito.precio_unidad * Producto_Carrito.cantidad)
     ).filter_by(id_carrito=carrito.id_carrito).scalar()
+    
+    if not total:
+        total = 0
+    
     return render_template('/carrito.html', productos=productos, total=total)
 
 

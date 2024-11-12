@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="nombre-producto">${producto.nombre}</span>
                             <span class="precio">${producto.precio}</span>
                             <div class="acciones">
-                                <form class="btn agregar-carrito" method="post" action="/editProducto/${producto.id_Producto}">
+                                <form class="btn agregar-carrito" method="post" action="/editProducto/${producto.id}">
                                     <input type="submit" value="Editar Producto">
                                 </form>
-                                <form class="btn agregar-carrito" method="post" action="/eliminarProducto/${producto.id_Producto}">
+                                <form class="btn agregar-carrito" method="post" action="/eliminarProducto/${producto.id}">
                                     <input type="submit" value="Eliminar Producto">
                                 </form>
                             </div>

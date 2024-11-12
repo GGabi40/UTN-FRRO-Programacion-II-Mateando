@@ -6,4 +6,3 @@ flask-login
 flask-mail
 pydantic
 pydantic[email]
-python-dotenv

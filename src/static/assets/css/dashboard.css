@@ -104,7 +104,7 @@ h2 {
 }
 
 .dashboard-card.ventas {
-    max-height: 200px;
+    max-height: 300px;
 }
 
 .dashboard-card {
@@ -131,6 +131,21 @@ h2 {
   padding: 0.5rem;
   background-color: var(--background);
   border-radius: 4px;
+}
+
+#volverBtn {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  background-color: var(--button-background);
+  border-radius: 8px;
+
+  transition: background-color 0.3s ease-in-out
+}
+
+#volverBtn:hover {
+  cursor: pointer;
+  background-color: var(--back-top);
 }
 
 #agregar-producto-form {
@@ -243,7 +258,7 @@ input[type="submit"]:hover {
   margin-bottom: 15px;
 }
 
-.info-productos .precio::before {
+.info-productos .precio::before, #ingresos::before {
   content: "$ ";
 }
 
