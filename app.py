@@ -97,6 +97,9 @@ def dashboard():
         print("No tienes permiso para acceder a esta página.")
         return redirect(url_for('index'))  # Redirige al Inicio
 
+    if not suma:
+        suma = 0
+    
     productos: List[Tuple[Any]] = Producto.query.all()
     # Solo llega a esta línea si cumple con el atributo es_Admin
     return render_template("auth/dashboard.html", productos=productos, count= count, suma=suma)
@@ -242,22 +245,31 @@ def obtener_productos():
 def agrega_carrito(id_producto: int):
     try:
         usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
+
         carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
+
         producto = Producto.query.filter_by(id_Producto=id_producto).first()
 
-        nuevo_producto: Producto_Carrito = Producto_Carrito (
-            id_carrito = carrito.id_carrito,
-            id_producto = id_producto,
-            cantidad = 1,
-            precio_unidad = producto.precio
-        )
-        
-        db.session.add(nuevo_producto)
+        producto_carrito = Producto_Carrito.query.filter_by(id_carrito=carrito.id_carrito, id_producto=producto.id_Producto).first()
+ 
+        if producto_carrito:
+            producto_carrito.cantidad += 1
+        else:
+            nuevo_producto = Producto_Carrito(
+                id_carrito=carrito.id_carrito,
+                id_producto=id_producto,
+                cantidad=1,
+                precio_unidad=producto.precio
+            )
+            db.session.add(nuevo_producto)
+
         db.session.commit()
+
         
         return redirect(request.referrer)
     except:
         print('Error!')
+        return redirect(url_for('index'))
 
 
 # Elimina de carrito
@@ -294,6 +306,21 @@ def venta():
     db.session.commit()
     
     return redirect(url_for('index'))
+
+
+""" Verifica si hay productos """
+@app.route('/verificaProductos', methods=['POST'])
+def verificaProductos():
+    usuario = Usuario.query.filter_by(id_usuario=current_user.id_usuario).first()
+    carrito = Carrito.query.filter_by(id_usuario=usuario.id_usuario).first()
+    
+    cantidad = db.session.query(
+            db.func.sum(Producto_Carrito.cantidad)
+        ).filter_by(id_carrito=carrito.id_carrito).scalar()
+    
+    return jsonify({"cantidad": cantidad})
+
+
 
 #RUTAS DE PRODUCTOS
 

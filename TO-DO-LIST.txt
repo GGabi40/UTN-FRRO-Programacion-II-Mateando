@@ -1,34 +1,7 @@
 TO DO LIST
-- agregar mensajes cuando se manda un formulario
-    [ OK ] CONTACTO
-    [ OK ] REGISTRO ---> Queda: mostrar mensaje de error cuando se ingresan dos correos iguales
-                         Se envía un mensaje desde la ruta cuando no se pudo crear el usuario
-    [ OK ] PRODUCTO
-    [ OK ] AGG PROD AL CARRITO - Dashboard
-    [ OK ] CARRITO (al enviar) -  Al realizar compra envia algo
-    [ OK ] Cuando se envía el reestablecimiento de contraseña -> Mensaje con Swal **
-    [ OK ] Cuando se ingresa un correo o una contraseña incorrecta en el login -> Mensaje con Swal **
-
-
-
-[ ] JS para cantidad -> header
-- $$ ventas en dashboard
-
-
-- creación y vista de carrito
-- poner en uso botón de Agregar al carrito
-
-
-- agregar una tabla Ventas (id_usuario, total, nro_factura)
-- funcionalidad de filtrado de productos.html (Arranqué pero salta error)
-- acomodar vista de productos.html
-   (No terminado) - grid rari 
-   [OK] agregar estilo al texto de "No se encontraron productos."
-
 
 OPTIONAL:
 - limitar la cantidad de productos que se muestran en index.html
-- crear una vista para que el usuario modifique sus datos (por ej., modificar contraseña temporal)
 - búsqueda dinámica en la barrita de arriba (que se vayan actualizando los resultados mientras el usuario escribe
   en una barrita desplegable)
       [OK] en Dashboard
@@ -58,6 +31,25 @@ DONE:
 - armar formulario para restaurar contraseña con funcionalidad
 - agregar botón para salir de miPerfil sin necesidad de modificar datos
 - ESTILO SI NO TIENE PRODUCTOS EN CARRITO
+- agregar mensajes cuando se manda un formulario
+    - CONTACTO
+    - REGISTRO ---> Queda: mostrar mensaje de error cuando se ingresan dos correos iguales
+                         Se envía un mensaje desde la ruta cuando no se pudo crear el usuario
+    - PRODUCTO
+    - AGG PROD AL CARRITO - Dashboard
+    - CARRITO (al enviar) -  Al realizar compra envia algo
+    - Cuando se envía el reestablecimiento de contraseña -> Mensaje con Swal **
+    - Cuando se ingresa un correo o una contraseña incorrecta en el login -> Mensaje con Swal **
+- JS para cantidad -> header
+- $$ ventas en dashboard
+- creación y vista de carrito
+- poner en uso botón de Agregar al carrito
+- agregar una tabla Ventas (id_usuario, total, nro_factura)
+- funcionalidad de filtrado de productos.html (Arranqué pero salta error)
+- acomodar vista de productos.html
+   - grid rari 
+   - agregar estilo al texto de "No se encontraron productos."
+- crear una vista para que el usuario modifique sus datos (por ej., modificar contraseña temporal)
 
 
 
