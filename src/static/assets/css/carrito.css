@@ -117,6 +117,10 @@ h1 {
 
 /* RESUMEN */
 
+.precio-total::before {
+  content: '$ ';
+}
+
 .resumen {
   display: flex;
   flex-direction: column;

@@ -104,7 +104,7 @@ h2 {
 }
 
 .dashboard-card.ventas {
-    max-height: 200px;
+    max-height: 300px;
 }
 
 .dashboard-card {
@@ -243,7 +243,7 @@ input[type="submit"]:hover {
   margin-bottom: 15px;
 }
 
-.info-productos .precio::before {
+.info-productos .precio::before, #ingresos::before {
   content: "$ ";
 }
 

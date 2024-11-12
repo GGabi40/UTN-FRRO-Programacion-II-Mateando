@@ -90,6 +90,8 @@ def init_db():
 @login_required 
 def dashboard():
     count = Venta.query.count()
+    suma = db.session.query(func.sum(Venta.total)).scalar()
+    
     # Verifica si el usuario es administrador
     if not current_user.es_admin:
         print("No tienes permiso para acceder a esta página.")
@@ -97,7 +99,7 @@ def dashboard():
 
     productos: List[Tuple[Any]] = Producto.query.all()
     # Solo llega a esta línea si cumple con el atributo es_Admin
-    return render_template("auth/dashboard.html", productos=productos, count= count)
+    return render_template("auth/dashboard.html", productos=productos, count= count, suma=suma)
 
 # ----
 
@@ -500,6 +502,10 @@ def carrito():
     total = db.session.query(
         func.sum(Producto_Carrito.precio_unidad * Producto_Carrito.cantidad)
     ).filter_by(id_carrito=carrito.id_carrito).scalar()
+    
+    if not total:
+        total = 0
+    
     return render_template('/carrito.html', productos=productos, total=total)
 
 
