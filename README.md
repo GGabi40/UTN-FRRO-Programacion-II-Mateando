@@ -1,5 +1,5 @@
 <h1>🧉 Mateando</h1>
-<img src="./static/assets/img/LOGO-footer.webp">
+<img src="./src/static/assets/img/LOGO-footer.webp">
 <h2>TP Final - Programación II</h2>
 
 <p>Miembros del grupo:</p>
