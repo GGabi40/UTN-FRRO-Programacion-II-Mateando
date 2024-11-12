@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <form action="/agregaCarrito/${producto.id_Producto}" class="acciones" method="POST">
                             <button class="btn agregar-carrito">Agregar al carrito</button>
                         </form>
-                            <button class="btn comprar">Comprar</button>
                         </div>
                     </div>
                 </div>`;
