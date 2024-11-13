@@ -287,7 +287,7 @@ def venta():
     return redirect(url_for('index'))
 
 
-""" Verifica si hay productos """
+""" Verifica si hay productos en carrito -> muestra numeritos """
 @app.route('/verificaProductos', methods=['POST'])
 @login_required
 def verificaProductos():
