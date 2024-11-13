@@ -48,5 +48,4 @@ from flask_login import logout_user
 @main.route('/logout')
 def logout():
     logout_user()  # Cierra la sesión del usuario
-    # flash("Cierre de sesión exitoso", "info")
     return redirect(url_for('index'))

@@ -38,11 +38,8 @@ app.config['MAIL_PASSWORD'] = 'mjou dvrc ctuw fcld'  # Contraseña
 app.config['MAIL_DEFAULT_SENDER'] = ("Mateando", "mateando.ando6@gmail.com")
 
 
-
 mail = Mail(app)
 
-
-# CREACIÓN DE BASE DE DATOS
 
 @app.route('/database')
 def database():
@@ -51,17 +48,12 @@ def database():
 
 
 """ Crea BBDDs """
-
-
 def create_db():
     db.drop_all()
     db.create_all()
 
 
-""" VER DONDE PONER """
-
 """ Método de inicialización de nuestra BBDD """
-
 
 def init_db():
     create_db()
@@ -79,8 +71,6 @@ def init_db():
     db.session.add(admin)
     db.session.commit()
 
-
-"""  """
 
 
 # Rutas:
@@ -112,10 +102,7 @@ def mi_Perfil():
     return render_template('auth/miPerfil.html')
 
 
-""" MOSTRAR A GIULIANNO """
-
 """ Agregar un nuevo Usuario """
-
 
 @app.route('/addUsuario', methods=["POST"])
 def add_usuario() -> Response | str:
@@ -171,15 +158,9 @@ def add_producto() -> Response | str:
     return redirect(url_for("dashboard"))
 
 
-
-# -------------------------------------------------------------------------------------
-# AGREGADO POR JUSTI
-
 #RUTAS DEL DASHBOARD
 
-# A TRAVÉS DE LOS BOTONES DEL DASHBOARD
 # Muestra una página para editar el producto y manda como parámetro el id del producto
-
 
 @app.route('/editProducto/<int:id_producto>', methods=["POST"])
 def editProducto(id_producto: int):
@@ -187,7 +168,6 @@ def editProducto(id_producto: int):
     return render_template("auth/editarProducto.html", producto=producto)
 
 # Modifica el producto seleccionado
-
 
 @app.route('/editarProducto/<int:id_producto>', methods=["POST"])
 def edit_producto(id_producto: int) -> Response | str:
@@ -202,7 +182,6 @@ def edit_producto(id_producto: int) -> Response | str:
     db.session.commit()
     return redirect(url_for("dashboard"))
 
-# A TRAVÉS DE LOS BOTONES DEL DASHBOARD
 
 
 @app.route('/eliminarProducto/<int:id_producto>', methods=["POST"])
@@ -331,7 +310,7 @@ def productos():
     return render_template('/productos.html', productos=productos)
 
 
-""" Filtro de productos -> Seccion Productos (no funca)"""
+""" Filtro de productos -> Seccion Productos """
 @app.route('/filtrar', methods=["POST"])
 def filtrar_productos():
     categorias = request.json.get('categorias', [])
@@ -495,8 +474,7 @@ def deleteAccount():
 
     return redirect(url_for("index"))
 
-# FIN AGREGADO POR JUSTI
-# --------------------------------------------------------------------------------------
+
 
 #RUTAS BÁSICAS
 
@@ -572,7 +550,6 @@ def login():
 def registrarse():
     return render_template('/registrarse.html')
 
-# ----
 
 
 # Ruta para Errores
@@ -590,8 +567,6 @@ def method_not_allowed(error):
 @app.errorhandler(500)
 def internal_server():
     return render_template('errors/error500.html')
-
-# ----
 
 
 if __name__ == '__main__':
